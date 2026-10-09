@@ -3274,6 +3274,10 @@ function copyScript() {
         document.getElementById("scriptScenario").value;
 
     const data = scriptsData[selected];
+    if (!data) {
+        setCopyFeedback(false);
+        return;
+    }
 
     const textToCopy =
 `What to say:
@@ -3285,52 +3289,63 @@ If they keep pushing:
 "${data.push}"`;
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
-
         navigator.clipboard.writeText(textToCopy)
-            .then(() => {
-                const button =
-                    document.querySelector(
-                        '#scriptOutput button.btn-primary'
-                    );
-
-                if (button) {
-                    const original = button.textContent;
-                    button.textContent = "Copied";
-
-                    setTimeout(() => {
-                        button.textContent = original;
-                    }, 1600);
-                }
-            })
-            .catch(() => {
-                fallbackCopy(textToCopy);
-            });
-
+            .then(() => setCopyFeedback(true))
+            .catch(() => setCopyFeedback(fallbackCopy(textToCopy)));
     } else {
-        fallbackCopy(textToCopy);
+        setCopyFeedback(fallbackCopy(textToCopy));
     }
+}
+
+function setCopyFeedback(success) {
+    const button = document.querySelector(
+        '#scriptOutput button[onclick="copyScript()"]'
+    );
+
+    if (!button) return;
+
+    if (button.dataset.originalLabel === undefined) {
+        button.dataset.originalLabel = button.textContent.trim() || "Copy Script";
+    }
+
+    button.textContent = success ? "Copied" : "Copy failed — select text manually";
+    button.setAttribute("aria-live", "polite");
+
+    if (button._copyFeedbackTimer) {
+        clearTimeout(button._copyFeedbackTimer);
+    }
+
+    button._copyFeedbackTimer = setTimeout(() => {
+        button.textContent = button.dataset.originalLabel;
+        button.removeAttribute("aria-live");
+        button._copyFeedbackTimer = null;
+    }, success ? 1800 : 3500);
 }
 
 function fallbackCopy(text) {
 
     const textarea = document.createElement("textarea");
-
     textarea.value = text;
+    textarea.setAttribute("readonly", "");
     textarea.style.position = "fixed";
     textarea.style.opacity = "0";
+    textarea.style.pointerEvents = "none";
 
     document.body.appendChild(textarea);
-
     textarea.focus();
     textarea.select();
 
+    let copied = false;
+
     try {
-        document.execCommand("copy");
+        copied = document.execCommand("copy");
     } catch (error) {
         console.warn("Copy failed:", error);
+    } finally {
+        textarea.remove();
     }
 
-    document.body.removeChild(textarea);
+    return copied;
 }
 
 /* =========================================================
@@ -3635,25 +3650,15 @@ function generateActivity() {
                parentMatch;
     });
 
-    /*
-       If the exact combination is too narrow,
-       progressively relax the filter so the user
-       always gets a useful result.
-    */
-
     if (matches.length === 0) {
-        matches = activitiesDatabase.filter(activity => {
-            const timeMatch = activity.time.includes(time);
-            const locationMatch =
-                location === "either" ||
-                activity.location.includes(location);
-
-            return timeMatch && locationMatch;
-        });
-    }
-
-    if (matches.length === 0) {
-        matches = activitiesDatabase;
+        showResult("activityOutput", `
+            <div class="activity-main">
+                <h3>No exact match this time</h3>
+                <p>Try changing one filter, choosing “Either” for location, or selecting a different time or activity style.</p>
+                <p>Your choices have not been changed, and no activity has been substituted without telling you.</p>
+            </div>
+        `);
+        return;
     }
 
     const activity =
@@ -3906,43 +3911,43 @@ function generateReflection() {
 ========================================================= */
 
 let activeModal = null;
+let modalTrigger = null;
 
 function openModal(modalId) {
 
     const modal = document.getElementById(modalId);
-
     if (!modal) return;
 
+    modalTrigger = document.activeElement;
     modal.classList.add("open");
     activeModal = modalId;
-
     document.body.style.overflow = "hidden";
 
-    const closeButton =
-        modal.querySelector(".modal-close");
-
+    const closeButton = modal.querySelector(".modal-close");
     if (closeButton) {
-        setTimeout(() => closeButton.focus(), 30);
+        closeButton.focus();
     }
 }
 
 function closeModal(modalId) {
 
     const modal = document.getElementById(modalId);
-
     if (!modal) return;
 
     modal.classList.remove("open");
 
     if (activeModal === modalId) {
         activeModal = null;
-    }
+        document.body.style.overflow = "";
 
-    document.body.style.overflow = "";
+        if (modalTrigger && typeof modalTrigger.focus === "function") {
+            modalTrigger.focus();
+        }
+        modalTrigger = null;
+    }
 }
 
 function closeModalOutside(event, modalId) {
-
     if (event.target.id === modalId) {
         closeModal(modalId);
     }
@@ -3950,10 +3955,38 @@ function closeModalOutside(event, modalId) {
 
 document.addEventListener("keydown", event => {
 
-    if (event.key === "Escape" && activeModal) {
+    if (!activeModal) return;
+
+    if (event.key === "Escape") {
         closeModal(activeModal);
+        return;
     }
 
+    if (event.key !== "Tab") return;
+
+    const modal = document.getElementById(activeModal);
+    if (!modal) return;
+
+    const focusable = Array.from(modal.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )).filter(element => element.getClientRects().length > 0);
+
+    if (focusable.length === 0) {
+        event.preventDefault();
+        modal.focus();
+        return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && (document.activeElement === first || !modal.contains(document.activeElement))) {
+        event.preventDefault();
+        last.focus();
+    } else if (!event.shiftKey && (document.activeElement === last || !modal.contains(document.activeElement))) {
+        event.preventDefault();
+        first.focus();
+    }
 });
 
 /* =========================================================
