@@ -1624,8 +1624,8 @@ footer {
 
 @media print {
     @page {
-        size: auto;
-        margin: 16mm;
+        size: A4 portrait;
+        margin: 7mm;
     }
 
     body {
@@ -1711,7 +1711,7 @@ footer {
         outline: 2px dashed #e5b94b !important;
         outline-offset: -10px !important;
         border-radius: 18px !important;
-        padding: 12mm !important;
+        padding: 7mm !important;
         background: #fffdf7 !important;
         color: #26372f !important;
         box-shadow: none !important;
@@ -1765,8 +1765,86 @@ footer {
         color: initial !important;
     }
 
+    /* Compact print layout so the complete agreement fits on one A4 sheet. */
+    [data-print-active="true"] .agreement-paper {
+        font-size: 9pt !important;
+        line-height: 1.22 !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .paper-brand {
+        font-size: 7pt !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-sticker-row {
+        font-size: 12pt !important;
+        gap: 6px !important;
+        margin: 3px 0 !important;
+    }
+
+    [data-print-active="true"] .agreement-paper h3 {
+        font-size: 22pt !important;
+        line-height: 1.05 !important;
+        margin: 3px 0 5px !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .paper-intro {
+        font-size: 8.5pt !important;
+        line-height: 1.2 !important;
+        margin: 0 auto 7px !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-kid-name {
+        padding: 5px 8px !important;
+        margin: 0 0 5px !important;
+        font-size: 9pt !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-kid-name strong {
+        font-size: 10pt !important;
+    }
+
     [data-print-active="true"] .agreement-paper .agreement-rule {
+        grid-template-columns: 125px 1fr !important;
+        gap: 8px !important;
+        padding: 5px 0 !important;
         break-inside: avoid;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-rule strong,
+    [data-print-active="true"] .agreement-paper .agreement-rule span {
+        font-size: 8pt !important;
+        line-height: 1.2 !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-reward {
+        margin-top: 7px !important;
+        padding: 7px !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-reward .reward-label {
+        font-size: 7pt !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-reward .reward-choice {
+        font-size: 11pt !important;
+        margin-top: 2px !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-review {
+        margin-top: 7px !important;
+        padding: 7px 9px !important;
+        font-size: 7.5pt !important;
+        line-height: 1.2 !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-signatures {
+        margin-top: 15px !important;
+        gap: 18px !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .signature-line {
+        padding-top: 4px !important;
+        font-size: 7.5pt !important;
     }
 
     .print-hide,
