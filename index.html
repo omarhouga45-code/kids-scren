@@ -2304,84 +2304,63 @@ footer {
 </section>
 
 <!-- =========================
-     TOOLKIT
+     MORE RESOURCES
 ========================= -->
 
 <section class="section toolkit-section" id="toolkit">
     <div class="container">
 
         <div class="section-heading">
-            <span class="eyebrow">When you want more structure</span>
-            <h2>The Family Screen Reset Toolkit</h2>
+            <span class="eyebrow">Keep it practical</span>
+            <h2>Start Small. Build a Routine That Fits Your Family.</h2>
             <p>
-                The free tools help with individual moments.
-                The full toolkit is designed for families who want a deeper,
-                repeatable system they can work through over time.
+                You do not need a perfect 30-day plan to begin. Use the free tools
+                above to choose one screen-time moment and make it a little easier.
             </p>
         </div>
 
         <div class="toolkit-card">
-
             <div>
-                <h3>A complete set of practical resources for the bigger reset.</h3>
-
+                <h3>Your first step can be simple.</h3>
                 <p>
-                    Use the pieces together rather than starting from scratch every time
-                    screen-time becomes difficult.
+                    Pick one transition, agree on what happens next, and review
+                    how it went. Add more structure only when it is useful for your family.
                 </p>
-
                 <div class="bundle-list">
-
                     <div class="bundle-item">
                         <span class="bundle-check">✓</span>
-                        <span>30-Day Screen Reset Planner</span>
+                        <span>Reflect on your current routine</span>
                     </div>
-
                     <div class="bundle-item">
                         <span class="bundle-check">✓</span>
-                        <span>Family Screen Agreement Templates</span>
+                        <span>Make a family screen agreement</span>
                     </div>
-
                     <div class="bundle-item">
                         <span class="bundle-check">✓</span>
-                        <span>Parent Conversation Scripts</span>
+                        <span>Choose an offline activity</span>
                     </div>
-
                     <div class="bundle-item">
                         <span class="bundle-check">✓</span>
-                        <span>Screen-Free Activity Cards</span>
+                        <span>Prepare what to say when screen time ends</span>
                     </div>
-
-                    <div class="bundle-item">
-                        <span class="bundle-check">✓</span>
-                        <span>Routine Planners and Progress Trackers</span>
-                    </div>
-
-                    <div class="bundle-item">
-                        <span class="bundle-check">✓</span>
-                        <span>Weekly Review and Practical Implementation Guide</span>
-                    </div>
-
                 </div>
-
                 <button
                     type="button"
-                    class="btn btn-secondary"
-                    id="toolkitCta">
-                    Explore the Full Toolkit
+                    class="btn btn-primary"
+                    onclick="scrollToElement('resetCard')">
+                    Build Tonight's Reset
                 </button>
-
-                <p class="toolkit-note" id="toolkitStatus" role="status">
-                    The checkout link will be added when the toolkit is ready to buy.
+                <p class="toolkit-note">
+                    Printable planners and a longer guided toolkit are not available yet.
+                    The tools on this page are free to use, with no checkout required.
                 </p>
             </div>
 
             <div class="toolkit-preview" aria-hidden="true">
                 <div class="toolkit-preview-top">
-                    <strong>30-Day Reset Planner</strong>
-                    <small>Printable</small>
+                    <strong>One Small Reset</strong>
+                    <small>Start here</small>
                 </div>
-
                 <div class="preview-lines">
                     <div class="preview-line"></div>
                     <div class="preview-line medium"></div>
@@ -2392,7 +2371,6 @@ footer {
                     <div class="preview-line"></div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
@@ -2536,13 +2514,21 @@ footer {
         </p>
 
         <p>
-            The current website does not require an account or ask you to submit
-            your tool responses to a Family Screen Guide server.
+            The current website does not require an account or send the answers
+            you enter into its tools to a Family Screen Guide application server.
+            The tools process those answers in your browser.
         </p>
 
         <p>
-            External services linked from this site, such as Gumroad or social
-            platforms, may have their own privacy policies and practices.
+            The site is hosted by GitHub Pages. Like other web hosting providers,
+            GitHub may process technical request information in accordance with
+            its own policies. This site does not currently include a contact form,
+            account system, or first-party analytics.
+        </p>
+
+        <p>
+            If links to external services are added in the future, those services
+            may have their own privacy policies and practices.
         </p>
 
         <button
@@ -4005,16 +3991,6 @@ document.addEventListener("keydown", event => {
 document.addEventListener("DOMContentLoaded", () => {
 
     displayScript();
-
-    const toolkitCta = document.getElementById("toolkitCta");
-    if (toolkitCta) {
-        toolkitCta.addEventListener("click", () => {
-            const status = document.getElementById("toolkitStatus");
-            if (status) {
-                status.textContent = "The toolkit is not available to purchase yet. The real Gumroad product link must be added before launch.";
-            }
-        });
-    }
 
     /*
        Give the agreement a sensible default review date
