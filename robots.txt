@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://omarhouga45-code.github.io/kids-scren/sitemap.xml
