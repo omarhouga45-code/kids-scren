@@ -1681,11 +1681,70 @@ footer {
         color: #111 !important;
     }
 
-    .agreement-paper {
-        border: 1px solid #222 !important;
+    /* Preserve the designed agreement as a real, colorful printable page. */
+    [data-print-active="true"] .agreement-paper {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        border: 3px solid #354d43 !important;
+        outline: 2px dashed #e5b94b !important;
+        outline-offset: -10px !important;
+        border-radius: 18px !important;
+        padding: 12mm !important;
+        background: #fffdf7 !important;
+        color: #26372f !important;
         box-shadow: none !important;
-        border-radius: 0 !important;
-        padding: 16mm !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        break-inside: avoid;
+    }
+
+    [data-print-active="true"] .agreement-paper .paper-brand,
+    [data-print-active="true"] .agreement-paper h3,
+    [data-print-active="true"] .agreement-paper .agreement-kid-name strong,
+    [data-print-active="true"] .agreement-paper .agreement-rule strong {
+        color: #294a36 !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .paper-intro,
+    [data-print-active="true"] .agreement-paper .agreement-rule span {
+        color: #4f5955 !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-kid-name {
+        background: #f2f6df !important;
+        border: 2px dashed #b3c86d !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-reward {
+        background: #fff3ce !important;
+        border: 2px solid #f0cd70 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-reward .reward-label {
+        color: #75551b !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-reward .reward-choice {
+        color: #68491b !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-review {
+        background: #edf4ed !important;
+        color: #26372f !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-sticker-row {
+        color: initial !important;
+    }
+
+    [data-print-active="true"] .agreement-paper .agreement-rule {
+        break-inside: avoid;
     }
 
     .print-hide,
