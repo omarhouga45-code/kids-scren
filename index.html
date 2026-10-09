@@ -1643,6 +1643,28 @@ footer {
         visibility: visible !important;
     }
 
+    .agreement-print-root {
+        display: none;
+    }
+
+    body:has(.agreement-print-root) > *:not(.agreement-print-root) {
+        display: none !important;
+    }
+
+    body:has(.agreement-print-root) > .agreement-print-root {
+        display: block !important;
+        visibility: visible !important;
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        color: #111 !important;
+    }
+
     [data-print-active="true"] {
         position: absolute !important;
         left: 0 !important;
@@ -2825,6 +2847,28 @@ function printResult(id) {
     document.querySelectorAll('[data-print-active="true"]').forEach(el => {
         el.removeAttribute("data-print-active");
     });
+
+    // Print the agreement from a direct child of <body> so hidden page
+    // containers cannot suppress it in the browser's print layout.
+    if (id === "printArea") {
+        const paper = target.querySelector(".agreement-paper");
+        if (!paper) return;
+
+        const printRoot = document.createElement("div");
+        printRoot.className = "agreement-print-root";
+        printRoot.setAttribute("data-print-active", "true");
+        printRoot.appendChild(paper.cloneNode(true));
+        document.body.appendChild(printRoot);
+
+        const cleanup = () => {
+            printRoot.remove();
+            window.removeEventListener("afterprint", cleanup);
+        };
+        window.addEventListener("afterprint", cleanup, { once: true });
+        window.print();
+        setTimeout(cleanup, 30000);
+        return;
+    }
 
     target.setAttribute("data-print-active", "true");
     const cleanup = () => target.removeAttribute("data-print-active");
