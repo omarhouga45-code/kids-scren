@@ -1,0 +1,4005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Family Screen Guide | Practical Help for Everyday Screen-Time Moments</title>
+<meta name="description" content="Practical, calm tools to help parents handle screen-time transitions, family boundaries, offline activities, and everyday digital routines.">
+
+<meta property="og:title" content="Family Screen Guide | Practical Screen-Time Help">
+<meta property="og:description" content="Come with a screen-time problem. Leave with something you can use.">
+<meta property="og:type" content="website">
+
+<style>
+:root {
+    --ink: #26332f;
+    --ink-soft: #52615c;
+    --muted: #71807a;
+    --paper: #fbfaf6;
+    --surface: #ffffff;
+    --surface-soft: #f3f5ef;
+    --sage: #657d6f;
+    --sage-dark: #4e665a;
+    --sage-light: #e5ece5;
+    --sand: #e9dfce;
+    --warm: #f5eee3;
+    --line: #dfe4dd;
+    --danger: #a34d45;
+    --success: #58745f;
+    --shadow: 0 10px 30px rgba(38, 51, 47, 0.07);
+    --shadow-soft: 0 4px 16px rgba(38, 51, 47, 0.05);
+    --radius: 18px;
+    --radius-small: 12px;
+    --max-width: 1120px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(101, 125, 111, 0.35);
+    outline-offset: 3px;
+}
+
+a {
+    color: inherit;
+}
+
+.container {
+    width: min(calc(100% - 32px), var(--max-width));
+    margin: 0 auto;
+}
+
+/* ---------- Navigation ---------- */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(251, 250, 246, 0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(223, 228, 221, 0.9);
+}
+
+.nav-inner {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+}
+
+.logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    background: var(--ink);
+    color: var(--paper);
+    display: grid;
+    place-items: center;
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: var(--sage-dark);
+}
+
+.mobile-menu-btn {
+    display: none;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* ---------- Shared ---------- */
+
+.skip-link {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    z-index: 1001;
+    padding: 10px 14px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 12px;
+}
+
+.section {
+    padding: 76px 0;
+}
+
+.section-small {
+    padding: 52px 0;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--sage-dark);
+    background: var(--sage-light);
+    border: 1px solid #d5e0d5;
+    padding: 6px 11px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin-bottom: 34px;
+}
+
+.section-heading.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-heading h2 {
+    font-size: clamp(1.9rem, 4vw, 2.65rem);
+    line-height: 1.12;
+    letter-spacing: -0.045em;
+    margin: 12px 0 12px;
+}
+
+.section-heading p {
+    color: var(--ink-soft);
+    max-width: 650px;
+    font-size: 1.02rem;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    font-weight: 750;
+    cursor: pointer;
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: var(--ink);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1b2723;
+}
+
+.btn-secondary {
+    background: var(--surface);
+    border-color: var(--line);
+    color: var(--ink);
+}
+
+.btn-secondary:hover {
+    border-color: var(--sage);
+    color: var(--sage-dark);
+}
+
+.btn-soft {
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    border-color: #d5e0d5;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    padding: 82px 0 70px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+    gap: 64px;
+    align-items: center;
+}
+
+.hero-copy h1 {
+    font-size: clamp(2.7rem, 6vw, 4.8rem);
+    line-height: 0.99;
+    letter-spacing: -0.065em;
+    max-width: 760px;
+    margin: 16px 0 22px;
+}
+
+.hero-copy h1 span {
+    color: var(--sage-dark);
+}
+
+.hero-copy > p {
+    color: var(--ink-soft);
+    font-size: clamp(1.05rem, 2vw, 1.18rem);
+    max-width: 650px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.hero-note {
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 0.87rem;
+}
+
+.hero-note span {
+    color: var(--sage-dark);
+    font-weight: 800;
+}
+
+.hero-visual {
+    position: relative;
+}
+
+.hero-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.hero-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+}
+
+.hero-card-top strong {
+    font-size: 0.95rem;
+}
+
+.status-dot {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--sage-dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.status-dot::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--sage);
+}
+
+.problem-preview {
+    padding: 20px 0 8px;
+}
+
+.problem-preview small {
+    color: var(--muted);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 750;
+}
+
+.problem-preview h3 {
+    margin: 6px 0 14px;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+}
+
+.mini-plan {
+    display: grid;
+    gap: 9px;
+}
+
+.mini-plan-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 11px 12px;
+    border-radius: 11px;
+    background: var(--surface-soft);
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+}
+
+.mini-plan-number {
+    width: 25px;
+    height: 25px;
+    flex: 0 0 25px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: white;
+    color: var(--sage-dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+/* ---------- Problem cards ---------- */
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+.problem-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+    min-height: 178px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    box-shadow: var(--shadow-soft);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.problem-card:hover {
+    transform: translateY(-3px);
+    border-color: #cbd6cd;
+    box-shadow: var(--shadow);
+}
+
+.problem-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: var(--warm);
+    display: grid;
+    place-items: center;
+    color: var(--sage-dark);
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.problem-card h3 {
+    font-size: 1rem;
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
+
+.problem-card p {
+    color: var(--muted);
+    font-size: 0.86rem;
+}
+
+.problem-link {
+    margin-top: 16px;
+    color: var(--sage-dark);
+    font-size: 0.82rem;
+    font-weight: 750;
+}
+
+/* ---------- How it works ---------- */
+
+.how-section {
+    background: var(--surface-soft);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.how-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px;
+}
+
+.how-number {
+    color: var(--sage-dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.how-card h3 {
+    margin: 10px 0 8px;
+    font-size: 1.15rem;
+}
+
+.how-card p {
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+/* ---------- Tool sections ---------- */
+
+.tool-stack {
+    display: grid;
+    gap: 24px;
+}
+
+.tool-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 30px;
+    box-shadow: var(--shadow-soft);
+    scroll-margin-top: 95px;
+}
+
+.tool-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 22px;
+    margin-bottom: 26px;
+}
+
+.tool-title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.tool-icon {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    font-weight: 850;
+}
+
+.tool-header h3 {
+    font-size: 1.45rem;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin-bottom: 6px;
+}
+
+.tool-header p {
+    color: var(--muted);
+    max-width: 700px;
+    font-size: 0.93rem;
+}
+
+.tool-badge {
+    white-space: nowrap;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    border-radius: 999px;
+    padding: 6px 10px;
+    color: var(--sage-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.form-group {
+    min-width: 0;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--ink);
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    background: #fcfcfa;
+    color: var(--ink);
+    border-radius: 11px;
+    padding: 12px 13px;
+    min-height: 46px;
+    transition:
+        border-color 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+textarea {
+    min-height: 105px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9aa49f;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: #cbd5cd;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--sage);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(101, 125, 111, 0.1);
+}
+
+.field-note {
+    color: var(--muted);
+    font-size: 0.76rem;
+    margin-top: -1px;
+}
+
+.error-msg {
+    display: none;
+    color: var(--danger);
+    font-size: 0.78rem;
+    margin-top: 6px;
+}
+
+.tool-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tool-actions .btn {
+    min-width: 150px;
+}
+
+.result-box {
+    display: none;
+    margin-top: 24px;
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.result-box.visible {
+    display: block;
+    animation: resultIn 0.22s ease;
+}
+
+@keyframes resultIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-heading {
+    font-size: 1.18rem;
+    margin-bottom: 7px;
+    letter-spacing: -0.02em;
+}
+
+.result-intro {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    margin-bottom: 18px;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.result-step {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 16px;
+}
+
+.result-step small {
+    display: block;
+    color: var(--sage-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 5px;
+}
+
+.result-step strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.92rem;
+}
+
+.result-step p {
+    color: var(--ink-soft);
+    font-size: 0.86rem;
+}
+
+.next-step {
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 13px;
+    background: var(--warm);
+    border: 1px solid var(--sand);
+}
+
+.next-step strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.next-step p {
+    color: var(--ink-soft);
+    font-size: 0.86rem;
+}
+
+.result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+/* ---------- Choice cards ---------- */
+
+.choice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.choice-button {
+    text-align: left;
+    border: 1px solid var(--line);
+    background: white;
+    color: var(--ink);
+    border-radius: 12px;
+    padding: 13px 14px;
+    cursor: pointer;
+    transition: 0.18s ease;
+}
+
+.choice-button:hover {
+    border-color: #c3d0c5;
+}
+
+.choice-button.selected {
+    background: var(--sage-light);
+    border-color: #bfd0c2;
+    color: var(--sage-dark);
+}
+
+.choice-button strong {
+    display: block;
+    font-size: 0.88rem;
+}
+
+.choice-button span {
+    display: block;
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 0.76rem;
+}
+
+.choice-button.selected span {
+    color: var(--sage-dark);
+}
+
+/* ---------- Activity ---------- */
+
+.filter-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.activity-result {
+    position: relative;
+}
+
+.activity-main {
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+}
+
+.activity-category {
+    display: inline-block;
+    color: var(--sage-dark);
+    background: var(--sage-light);
+    border-radius: 999px;
+    padding: 5px 9px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+}
+
+.activity-main h4 {
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.activity-main p {
+    color: var(--ink-soft);
+}
+
+.activity-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.activity-detail {
+    background: var(--surface-soft);
+    border-radius: 11px;
+    padding: 12px;
+}
+
+.activity-detail small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 3px;
+}
+
+.activity-detail span {
+    font-size: 0.82rem;
+}
+
+/* ---------- Scripts ---------- */
+
+.script-result {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    padding: 22px;
+}
+
+.script-label {
+    color: var(--sage-dark);
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.script-result h4 {
+    font-size: 1.25rem;
+    margin: 6px 0 16px;
+}
+
+.script-block {
+    padding: 14px 16px;
+    background: var(--surface-soft);
+    border-radius: 11px;
+    margin-bottom: 10px;
+}
+
+.script-block strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+}
+
+.script-block p {
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+}
+
+.script-quote {
+    background: var(--warm);
+    border: 1px solid var(--sand);
+    border-radius: 13px;
+    padding: 18px;
+    margin-bottom: 14px;
+}
+
+.script-quote strong {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--sage-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 7px;
+}
+
+.script-quote p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* ---------- Agreement ---------- */
+
+.agreement-paper {
+    background: white;
+    border: 1px solid #d5dcd5;
+    padding: 32px;
+    border-radius: 8px;
+    margin-top: 0;
+    color: #222b27;
+}
+
+.agreement-paper .paper-brand {
+    color: var(--sage-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.agreement-paper h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+    line-height: 1.15;
+    margin: 8px 0 8px;
+}
+
+.agreement-paper .paper-intro {
+    color: #59635f;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+}
+
+.agreement-rule {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 18px;
+    padding: 13px 0;
+    border-top: 1px solid #e2e5e1;
+}
+
+.agreement-rule strong {
+    font-size: 0.82rem;
+}
+
+.agreement-rule span {
+    font-size: 0.9rem;
+    color: #4f5955;
+}
+
+.agreement-review {
+    margin-top: 24px;
+    padding: 15px;
+    background: #f4f6f2;
+    border-radius: 9px;
+    font-size: 0.82rem;
+}
+
+.agreement-signatures {
+    margin-top: 38px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+}
+
+.signature-line {
+    border-top: 1px solid #333;
+    padding-top: 7px;
+    font-size: 0.78rem;
+}
+
+/* ---------- Reflection ---------- */
+
+.reflection-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.reflection-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 17px;
+}
+
+.reflection-card h4 {
+    font-size: 0.92rem;
+    margin-bottom: 7px;
+}
+
+.reflection-card p,
+.reflection-card li {
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+}
+
+.reflection-card ul {
+    padding-left: 17px;
+}
+
+.reflection-highlight {
+    grid-column: 1 / -1;
+    background: var(--warm);
+    border-color: var(--sand);
+}
+
+/* ---------- Toolkit ---------- */
+
+.toolkit-section {
+    background: var(--ink);
+    color: white;
+}
+
+.toolkit-section .section-heading h2,
+.toolkit-section .section-heading p {
+    color: white;
+}
+
+.toolkit-section .section-heading p {
+    color: #c8d0cc;
+}
+
+.toolkit-card {
+    background: #34433d;
+    border: 1px solid #46554f;
+    border-radius: 24px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 38px;
+    align-items: center;
+}
+
+.toolkit-card h3 {
+    font-size: clamp(1.7rem, 3vw, 2.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    margin-bottom: 12px;
+}
+
+.toolkit-card > div > p {
+    color: #c8d0cc;
+}
+
+.bundle-list {
+    display: grid;
+    gap: 10px;
+    margin: 22px 0;
+}
+
+.bundle-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #e3e8e5;
+    font-size: 0.9rem;
+}
+
+.bundle-check {
+    width: 21px;
+    height: 21px;
+    flex: 0 0 21px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #526a5c;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 900;
+    margin-top: 2px;
+}
+
+.toolkit-preview {
+    background: #f8f7f2;
+    color: var(--ink);
+    border-radius: 17px;
+    padding: 22px;
+}
+
+.toolkit-preview-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 17px;
+}
+
+.toolkit-preview small {
+    color: var(--muted);
+}
+
+.preview-lines {
+    display: grid;
+    gap: 9px;
+}
+
+.preview-line {
+    height: 10px;
+    border-radius: 99px;
+    background: #dfe4dd;
+}
+
+.preview-line.short {
+    width: 58%;
+}
+
+.preview-line.medium {
+    width: 78%;
+}
+
+.toolkit-note {
+    color: #aebbb5;
+    font-size: 0.77rem;
+    margin-top: 13px;
+}
+
+/* ---------- Why free ---------- */
+
+.why-free {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.why-free p {
+    color: var(--ink-soft);
+}
+
+/* ---------- Social ---------- */
+
+.social-section {
+    border-top: 1px solid var(--line);
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.social-copy h2 {
+    font-size: clamp(1.9rem, 4vw, 2.55rem);
+    line-height: 1.1;
+    letter-spacing: -0.045em;
+    margin: 10px 0 12px;
+}
+
+.social-copy p {
+    color: var(--ink-soft);
+    max-width: 620px;
+}
+
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 14px;
+    font-weight: 700;
+}
+
+.social-link:hover {
+    border-color: #c4d0c6;
+}
+
+.social-link-inactive {
+    cursor: default;
+    color: var(--ink-soft);
+}
+
+.social-link-inactive small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 500;
+}
+
+.social-link-icon {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: var(--surface-soft);
+    color: var(--sage-dark);
+    font-size: 0.75rem;
+    font-weight: 850;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    padding: 34px 0 42px;
+    border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.footer-brand {
+    max-width: 360px;
+}
+
+.footer-brand strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer-brand p {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.legal-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.legal-links button {
+    border: none;
+    background: none;
+    color: var(--muted);
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.78rem;
+    padding: 2px;
+}
+
+.legal-links button:hover {
+    color: var(--sage-dark);
+}
+
+.footer-bottom {
+    margin-top: 26px;
+    color: var(--muted);
+    font-size: 0.75rem;
+}
+
+/* ---------- Modal ---------- */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(27, 39, 35, 0.58);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    z-index: 1000;
+}
+
+.modal-overlay.open {
+    display: flex;
+}
+
+.modal-content {
+    width: min(620px, 100%);
+    max-height: 86vh;
+    overflow-y: auto;
+    background: var(--surface);
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    padding: 28px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+}
+
+.modal-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+.modal-content p,
+.modal-content li {
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+}
+
+.modal-content ul {
+    padding-left: 20px;
+}
+
+.modal-close {
+    margin-top: 10px;
+}
+
+/* ---------- Utility ---------- */
+
+.hidden {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1000px) {
+    .problem-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero-grid {
+        gap: 38px;
+    }
+
+    .filter-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 780px) {
+    .container {
+        width: min(calc(100% - 24px), var(--max-width));
+    }
+
+    .section {
+        padding: 58px 0;
+    }
+
+    .hero {
+        padding: 56px 0 48px;
+    }
+
+    .hero-grid,
+    .toolkit-card,
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(2.45rem, 12vw, 3.6rem);
+    }
+
+    .nav-inner {
+        min-height: 64px;
+    }
+
+    .mobile-menu-btn {
+        display: grid;
+        place-items: center;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 12px;
+        right: 12px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 10px;
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 11px 12px;
+        border-radius: 9px;
+    }
+
+    .nav-links a:hover {
+        background: var(--surface-soft);
+    }
+
+    .problem-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .how-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-card {
+        padding: 22px;
+    }
+
+    .tool-header {
+        flex-direction: column;
+    }
+
+    .tool-badge {
+        align-self: flex-start;
+    }
+
+    .form-grid,
+    .result-grid,
+    .reflection-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .choice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-details {
+        grid-template-columns: 1fr;
+    }
+
+    .agreement-rule {
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .agreement-signatures {
+        grid-template-columns: 1fr;
+    }
+
+    .social-grid {
+        gap: 24px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+    }
+
+    .legal-links {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 500px) {
+    .problem-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-actions,
+    .tool-actions,
+    .result-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn,
+    .tool-actions .btn,
+    .result-actions .btn {
+        width: 100%;
+    }
+
+    .filter-row,
+    .social-links {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-title-row {
+        gap: 10px;
+    }
+
+    .tool-icon {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+    }
+
+    .tool-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .agreement-paper {
+        padding: 22px 18px;
+    }
+
+    .agreement-paper h3 {
+        font-size: 1.65rem;
+    }
+
+    .hero-card {
+        padding: 18px;
+    }
+}
+
+/* ---------- Print ---------- */
+
+@media print {
+    @page {
+        size: auto;
+        margin: 16mm;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+        padding: 0 !important;
+    }
+
+    body * {
+        visibility: hidden !important;
+    }
+
+    [data-print-active="true"],
+    [data-print-active="true"] * {
+        visibility: visible !important;
+    }
+
+    [data-print-active="true"] {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+        color: #111 !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        animation: none !important;
+    }
+
+    [data-print-active="true"] .result-step,
+    [data-print-active="true"] .activity-main,
+    [data-print-active="true"] .script-result,
+    [data-print-active="true"] .reflection-card,
+    [data-print-active="true"] .next-step {
+        background: #fff !important;
+        color: #111 !important;
+        border: 1px solid #bbb !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+    }
+
+    [data-print-active="true"] p,
+    [data-print-active="true"] span,
+    [data-print-active="true"] li,
+    [data-print-active="true"] strong,
+    [data-print-active="true"] h3,
+    [data-print-active="true"] h4,
+    [data-print-active="true"] small {
+        color: #111 !important;
+    }
+
+    .agreement-paper {
+        border: 1px solid #222 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 16mm !important;
+    }
+
+    .print-hide,
+    [data-print-active="true"] .result-actions,
+    [data-print-active="true"] .next-step .btn {
+        display: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header class="site-header">
+    <div class="container nav-inner">
+        <a class="logo" href="#top" aria-label="Family Screen Guide home">
+            <span class="logo-mark">F</span>
+            <span>Family Screen Guide</span>
+        </a>
+
+        <button
+            class="mobile-menu-btn"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            onclick="toggleMobileMenu()">
+            ☰
+        </button>
+
+        <nav class="nav-links" id="mainNav" aria-label="Main navigation">
+            <a href="#tools">Free Tools</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#toolkit">Full Toolkit</a>
+            <a href="#about">About</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main-content">
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+    <div class="container hero-grid">
+
+        <div class="hero-copy">
+            <span class="eyebrow">Practical help for everyday family life</span>
+
+            <h1>
+                Screen time getting
+                <span>harder than it should be?</span>
+            </h1>
+
+            <p>
+                Get practical help for the moments that make screen time difficult —
+                ending a session, handling pushback, setting family boundaries,
+                and finding something good to do next.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#problems" class="btn btn-primary">
+                    Find Help for Today
+                </a>
+
+                <a href="#tools" class="btn btn-secondary">
+                    Explore Free Tools
+                </a>
+            </div>
+
+            <div class="hero-note">
+                <span>✓</span>
+                <span>No account required. Your tool inputs stay in your browser.</span>
+            </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+            <div class="hero-card">
+
+                <div class="hero-card-top">
+                    <strong>A practical plan for tonight</strong>
+                    <span class="status-dot">Ready to use</span>
+                </div>
+
+                <div class="problem-preview">
+                    <small>Common parent moment</small>
+                    <h3>
+                        “Screen time is over, and now we're arguing again.”
+                    </h3>
+
+                    <div class="mini-plan">
+                        <div class="mini-plan-item">
+                            <span class="mini-plan-number">1</span>
+                            Give a clear warning before the stopping point.
+                        </div>
+
+                        <div class="mini-plan-item">
+                            <span class="mini-plan-number">2</span>
+                            Use one calm, predictable sentence.
+                        </div>
+
+                        <div class="mini-plan-item">
+                            <span class="mini-plan-number">3</span>
+                            Have the next activity ready.
+                        </div>
+
+                        <div class="mini-plan-item">
+                            <span class="mini-plan-number">4</span>
+                            Keep the boundary steady without a long debate.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================
+     PROBLEMS
+========================= -->
+
+<section class="section-small" id="problems">
+    <div class="container">
+
+        <div class="section-heading center">
+            <span class="eyebrow">Start with the problem</span>
+            <h2>What are you dealing with today?</h2>
+            <p>
+                You do not need a perfect family media plan to get started.
+                Pick the situation that feels most familiar.
+            </p>
+        </div>
+
+        <div class="problem-grid">
+
+            <a class="problem-card" href="#resetCard">
+                <div>
+                    <div class="problem-icon">→</div>
+                    <h3>My child won't stop.</h3>
+                    <p>Make the ending clearer and easier to handle.</p>
+                </div>
+                <span class="problem-link">Start a reset →</span>
+            </a>
+
+            <a class="problem-card" href="#agreementCard">
+                <div>
+                    <div class="problem-icon">✓</div>
+                    <h3>We need clearer rules.</h3>
+                    <p>Create a simple family screen plan you can use.</p>
+                </div>
+                <span class="problem-link">Build a plan →</span>
+            </a>
+
+            <a class="problem-card" href="#scriptCard">
+                <div>
+                    <div class="problem-icon">“</div>
+                    <h3>I don't know what to say.</h3>
+                    <p>Get a ready-to-use script for the moment you're in.</p>
+                </div>
+                <span class="problem-link">Find a script →</span>
+            </a>
+
+            <a class="problem-card" href="#activityCard">
+                <div>
+                    <div class="problem-icon">+</div>
+                    <h3>What can we do instead?</h3>
+                    <p>Find a realistic offline activity without much prep.</p>
+                </div>
+                <span class="problem-link">Find an idea →</span>
+            </a>
+
+            <a class="problem-card" href="#reflectionCard">
+                <div>
+                    <div class="problem-icon">↗</div>
+                    <h3>We need a bigger reset.</h3>
+                    <p>Step back and look at the whole family routine.</p>
+                </div>
+                <span class="problem-link">Reflect first →</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section class="section how-section" id="how-it-works">
+    <div class="container">
+
+        <div class="section-heading center">
+            <span class="eyebrow">How it works</span>
+            <h2>Simple help, built for real life.</h2>
+            <p>
+                Choose the moment you are dealing with, build something useful,
+                then take it into your family routine.
+            </p>
+        </div>
+
+        <div class="how-grid">
+
+            <div class="how-card">
+                <span class="how-number">01 · Choose</span>
+                <h3>Start with one real problem.</h3>
+                <p>
+                    Pick the tool that matches what is happening right now.
+                    No account, setup or long questionnaire required.
+                </p>
+            </div>
+
+            <div class="how-card">
+                <span class="how-number">02 · Build</span>
+                <h3>Get something made for your situation.</h3>
+                <p>
+                    Answer a few useful questions and receive a practical plan,
+                    script, activity or family agreement.
+                </p>
+            </div>
+
+            <div class="how-card">
+                <span class="how-number">03 · Use</span>
+                <h3>Take it off the screen.</h3>
+                <p>
+                    Print it, save it, copy it or simply use it tonight.
+                    The goal is a useful next step — not more information.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     FREE TOOLS
+========================= -->
+
+<section class="section" id="tools">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">Free tools</span>
+            <h2>Start with the moment that needs help.</h2>
+            <p>
+                Each tool is designed to solve one practical problem.
+                Use one today, then move to the next when you need it.
+            </p>
+        </div>
+
+        <div class="tool-stack">
+
+            <!-- =========================
+                 TOOL 1 — TONIGHT'S RESET
+            ========================= -->
+
+            <article class="tool-card" id="resetCard">
+
+                <div class="tool-header">
+                    <div class="tool-title-row">
+                        <div class="tool-icon">01</div>
+                        <div>
+                            <h3>Tonight's Screen Reset</h3>
+                            <p>
+                                Build a simple plan for the next screen-time moment,
+                                including the warning, ending, pushback and what happens next.
+                            </p>
+                        </div>
+                    </div>
+
+                    <span class="tool-badge">Free</span>
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="resetProblem">What usually goes wrong?</label>
+                        <select id="resetProblem">
+                            <option value="stopping">My child struggles to stop.</option>
+                            <option value="negotiating">We end up negotiating for more time.</option>
+                            <option value="upset">My child gets upset when it ends.</option>
+                            <option value="forgetting">The stopping point is not clear enough.</option>
+                            <option value="routine">The whole evening feels harder after screens.</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resetTiming">When is this most likely to happen?</label>
+                        <select id="resetTiming">
+                            <option value="after-school">After school</option>
+                            <option value="before-dinner">Before dinner</option>
+                            <option value="after-dinner">After dinner</option>
+                            <option value="bedtime">Near bedtime</option>
+                            <option value="weekend">Weekend / flexible time</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="resetGoal">What would a better ending feel like?</label>
+                        <select id="resetGoal">
+                            <option value="calm">Calm and predictable</option>
+                            <option value="quick">Quick and clear</option>
+                            <option value="less-negotiation">Less arguing</option>
+                            <option value="transition">An easier transition to the next activity</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="tool-actions">
+                    <button class="btn btn-primary" type="button" onclick="generateReset()">
+                        Build My Reset
+                    </button>
+                </div>
+
+                <div id="resetOutput" class="result-box" aria-live="polite"></div>
+
+            </article>
+
+            <!-- =========================
+                 TOOL 2 — FAMILY SCREEN PLAN
+            ========================= -->
+
+            <article class="tool-card" id="agreementCard">
+
+                <div class="tool-header">
+                    <div class="tool-title-row">
+                        <div class="tool-icon">02</div>
+                        <div>
+                            <h3>Family Screen Plan</h3>
+                            <p>
+                                Create a clear household agreement around routines,
+                                device-free moments, schoolwork and what happens when time ends.
+                            </p>
+                        </div>
+                    </div>
+
+                    <span class="tool-badge">Printable</span>
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="childName">Child's first name</label>
+                        <input
+                            type="text"
+                            id="childName"
+                            maxlength="60"
+                            placeholder="e.g. Leo">
+                        <div id="childNameError" class="error-msg">
+                            Please enter a first name.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="allowedHours">Agreed recreational screen time per day</label>
+                        <input
+                            type="number"
+                            id="allowedHours"
+                            min="0"
+                            max="12"
+                            step="0.5"
+                            placeholder="e.g. 2">
+                        <div class="field-note">
+                            This is a family agreement choice, not a recommended health limit.
+                        </div>
+                        <div id="allowedHoursError" class="error-msg">
+                            Please enter a number between 0 and 12.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deviceTimes">Screen-free times</label>
+                        <input
+                            type="text"
+                            id="deviceTimes"
+                            maxlength="180"
+                            placeholder="e.g. During meals and family conversations">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="devicePlaces">Screen-free places</label>
+                        <input
+                            type="text"
+                            id="devicePlaces"
+                            maxlength="180"
+                            placeholder="e.g. Dining table and bedrooms">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="schoolworkRule">Schoolwork / homework</label>
+                        <input
+                            type="text"
+                            id="schoolworkRule"
+                            maxlength="180"
+                            placeholder="e.g. Schoolwork comes before recreational screens">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bedtimeRule">Evening / bedtime routine</label>
+                        <input
+                            type="text"
+                            id="bedtimeRule"
+                            maxlength="180"
+                            placeholder="e.g. Devices charge outside the bedroom">
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="transitionRule">What happens when screen time ends?</label>
+                        <input
+                            type="text"
+                            id="transitionRule"
+                            maxlength="220"
+                            placeholder="e.g. We finish at a natural stopping point and put the device on its charger">
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="parentCommitment">Parent commitment</label>
+                        <input
+                            type="text"
+                            id="parentCommitment"
+                            maxlength="220"
+                            placeholder="e.g. I will give a clear warning and keep the conversation calm">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reviewDate">Review this plan on</label>
+                        <input type="date" id="reviewDate">
+                    </div>
+
+                </div>
+
+                <div class="tool-actions">
+                    <button class="btn btn-primary" type="button" onclick="generateAgreement()">
+                        Create Family Plan
+                    </button>
+                </div>
+
+                <div id="agreementOutput" class="result-box" aria-live="polite"></div>
+
+            </article>
+
+            <!-- =========================
+                 TOOL 3 — WHAT SHOULD I SAY
+            ========================= -->
+
+            <article class="tool-card" id="scriptCard">
+
+                <div class="tool-header">
+                    <div class="tool-title-row">
+                        <div class="tool-icon">03</div>
+                        <div>
+                            <h3>What Should I Say?</h3>
+                            <p>
+                                Get calm, natural wording for the conversation you are
+                                actually having — without turning it into a lecture.
+                            </p>
+                        </div>
+                    </div>
+
+                    <span class="tool-badge">Free</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="scriptScenario">Choose the situation</label>
+                    <select id="scriptScenario" onchange="displayScript()">
+                        <option value="timeUp">Screen time is ending.</option>
+                        <option value="fiveMore">“Can I have five more minutes?”</option>
+                        <option value="upset">My child is upset when the screen turns off.</option>
+                        <option value="negotiating">My child keeps negotiating.</option>
+                        <option value="newRule">We are introducing a new family rule.</option>
+                        <option value="explaining">I want to explain the boundary.</option>
+                        <option value="restart">We had a difficult evening and need to restart.</option>
+                    </select>
+                </div>
+
+                <div id="scriptOutput" class="result-box visible" aria-live="polite"></div>
+
+            </article>
+
+            <!-- =========================
+                 TOOL 4 — ACTIVITIES
+            ========================= -->
+
+            <article class="tool-card" id="activityCard">
+
+                <div class="tool-header">
+                    <div class="tool-title-row">
+                        <div class="tool-icon">04</div>
+                        <div>
+                            <h3>What Can We Do Instead?</h3>
+                            <p>
+                                Find an offline activity that fits the time, energy,
+                                location and amount of parent involvement you have available.
+                            </p>
+                        </div>
+                    </div>
+
+                    <span class="tool-badge">Free</span>
+                </div>
+
+                <div class="filter-row">
+
+                    <div class="form-group">
+                        <label for="activityTime">How much time?</label>
+                        <select id="activityTime">
+                            <option value="10">About 10 minutes</option>
+                            <option value="20">About 20 minutes</option>
+                            <option value="30">About 30 minutes</option>
+                            <option value="60">60+ minutes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="activityEnergy">Energy level</label>
+                        <select id="activityEnergy">
+                            <option value="calm">Calm</option>
+                            <option value="active">Active</option>
+                            <option value="creative">Creative</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="activityLocation">Where?</label>
+                        <select id="activityLocation">
+                            <option value="either">Either</option>
+                            <option value="indoors">Indoors</option>
+                            <option value="outdoors">Outdoors</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="activityParent">Parent involvement</label>
+                        <select id="activityParent">
+                            <option value="alone">Child can mostly do it alone</option>
+                            <option value="parent">With a parent</option>
+                            <option value="family">Whole family</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="tool-actions">
+                    <button class="btn btn-primary" type="button" onclick="generateActivity()">
+                        Find an Activity
+                    </button>
+                </div>
+
+                <div id="activityOutput" class="result-box activity-result" aria-live="polite"></div>
+
+            </article>
+
+            <!-- =========================
+                 TOOL 5 — REFLECTION
+            ========================= -->
+
+            <article class="tool-card" id="reflectionCard">
+
+                <div class="tool-header">
+                    <div class="tool-title-row">
+                        <div class="tool-icon">05</div>
+                        <div>
+                            <h3>Screen-Time Reflection</h3>
+                            <p>
+                                Step back from one number and look at the wider family pattern:
+                                routines, transitions, sleep, meals, movement and connection.
+                            </p>
+                        </div>
+                    </div>
+
+                    <span class="tool-badge">Reflection</span>
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="reflectionAge">Child's age group</label>
+                        <select id="reflectionAge">
+                            <option value="preschool">Preschool · 2–5</option>
+                            <option value="school" selected>School age · 6–11</option>
+                            <option value="teen">Early teen · 12–15</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reflectionHours">Approximate recreational screen time</label>
+                        <input
+                            type="number"
+                            id="reflectionHours"
+                            min="0"
+                            max="24"
+                            step="0.5"
+                            placeholder="e.g. 3">
+                        <div class="field-note">
+                            This tool uses the number descriptively, not as a health threshold.
+                        </div>
+                        <div id="reflectionHoursError" class="error-msg">
+                            Please enter a number between 0 and 24.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reflectionSleep">Sleep routine</label>
+                        <select id="reflectionSleep">
+                            <option value="steady">Generally steady</option>
+                            <option value="mixed">Sometimes difficult</option>
+                            <option value="difficult">Often difficult</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reflectionMeals">Meals / family moments</label>
+                        <select id="reflectionMeals">
+                            <option value="protected">We usually protect these moments</option>
+                            <option value="mixed">It varies</option>
+                            <option value="screen-heavy">Screens often enter these moments</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reflectionMovement">Movement / active time</label>
+                        <select id="reflectionMovement">
+                            <option value="regular">There is regular active time</option>
+                            <option value="mixed">It varies</option>
+                            <option value="limited">It is easy to miss</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reflectionTransitions">Stopping screen time</label>
+                        <select id="reflectionTransitions">
+                            <option value="smooth">Usually manageable</option>
+                            <option value="mixed">Sometimes difficult</option>
+                            <option value="hard">Often becomes a struggle</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reflectionConnection">Family connection / offline interests</label>
+                        <select id="reflectionConnection">
+                            <option value="space">There is room for them</option>
+                            <option value="mixed">It varies</option>
+                            <option value="crowded">They are often crowded out</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reflectionSchool">Schoolwork / responsibilities</label>
+                        <select id="reflectionSchool">
+                            <option value="managed">Generally manageable</option>
+                            <option value="mixed">Sometimes affected</option>
+                            <option value="affected">Often difficult to fit around screens</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="tool-actions">
+                    <button class="btn btn-primary" type="button" onclick="generateReflection()">
+                        Reflect on Our Pattern
+                    </button>
+                </div>
+
+                <div id="reflectionOutput" class="result-box" aria-live="polite"></div>
+
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     TOOLKIT
+========================= -->
+
+<section class="section toolkit-section" id="toolkit">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">When you want more structure</span>
+            <h2>The Family Screen Reset Toolkit</h2>
+            <p>
+                The free tools help with individual moments.
+                The full toolkit is designed for families who want a deeper,
+                repeatable system they can work through over time.
+            </p>
+        </div>
+
+        <div class="toolkit-card">
+
+            <div>
+                <h3>A complete set of practical resources for the bigger reset.</h3>
+
+                <p>
+                    Use the pieces together rather than starting from scratch every time
+                    screen-time becomes difficult.
+                </p>
+
+                <div class="bundle-list">
+
+                    <div class="bundle-item">
+                        <span class="bundle-check">✓</span>
+                        <span>30-Day Screen Reset Planner</span>
+                    </div>
+
+                    <div class="bundle-item">
+                        <span class="bundle-check">✓</span>
+                        <span>Family Screen Agreement Templates</span>
+                    </div>
+
+                    <div class="bundle-item">
+                        <span class="bundle-check">✓</span>
+                        <span>Parent Conversation Scripts</span>
+                    </div>
+
+                    <div class="bundle-item">
+                        <span class="bundle-check">✓</span>
+                        <span>Screen-Free Activity Cards</span>
+                    </div>
+
+                    <div class="bundle-item">
+                        <span class="bundle-check">✓</span>
+                        <span>Routine Planners and Progress Trackers</span>
+                    </div>
+
+                    <div class="bundle-item">
+                        <span class="bundle-check">✓</span>
+                        <span>Weekly Review and Practical Implementation Guide</span>
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="toolkitCta">
+                    Explore the Full Toolkit
+                </button>
+
+                <p class="toolkit-note" id="toolkitStatus" role="status">
+                    The checkout link will be added when the toolkit is ready to buy.
+                </p>
+            </div>
+
+            <div class="toolkit-preview" aria-hidden="true">
+                <div class="toolkit-preview-top">
+                    <strong>30-Day Reset Planner</strong>
+                    <small>Printable</small>
+                </div>
+
+                <div class="preview-lines">
+                    <div class="preview-line"></div>
+                    <div class="preview-line medium"></div>
+                    <div class="preview-line short"></div>
+                    <div class="preview-line"></div>
+                    <div class="preview-line medium"></div>
+                    <div class="preview-line short"></div>
+                    <div class="preview-line"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     WHY FREE
+========================= -->
+
+<section class="section-small">
+    <div class="container">
+        <div class="why-free">
+
+            <span class="eyebrow">Why the free tools?</span>
+
+            <h2 style="font-size:clamp(1.8rem,4vw,2.4rem);line-height:1.15;letter-spacing:-.04em;margin:12px 0;">
+                You should be able to see if something helps before paying for more.
+            </h2>
+
+            <p>
+                The free tools are designed to be genuinely useful on their own.
+                If they help and you want a more complete system with planners,
+                scripts, trackers and ready-to-print resources, the full toolkit
+                gives you more structure to work with.
+            </p>
+
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     SOCIAL
+========================= -->
+
+<section class="section social-section" id="about">
+    <div class="container social-grid">
+
+        <div class="social-copy">
+            <span class="eyebrow">Follow Family Screen Guide</span>
+
+            <h2>
+                Practical ideas for calmer screen-time routines.
+            </h2>
+
+            <p>
+                Follow the official Family Screen Guide channels for practical
+                parent moments, simple routines, offline ideas and useful scripts.
+            </p>
+
+            <p style="margin-top:12px;font-size:.82rem;color:var(--muted);">
+                Official accounts can be added here once they are live.
+            </p>
+        </div>
+
+        <div class="social-links" aria-label="Official channels">
+            <!-- Replace these inactive channel cards with real URLs only after the accounts are live. -->
+            <div class="social-link social-link-inactive" aria-label="Instagram, coming soon">
+                <span class="social-link-icon">IG</span>
+                <span>Instagram <small>Coming soon</small></span>
+            </div>
+            <div class="social-link social-link-inactive" aria-label="Facebook, coming soon">
+                <span class="social-link-icon">FB</span>
+                <span>Facebook <small>Coming soon</small></span>
+            </div>
+            <div class="social-link social-link-inactive" aria-label="Pinterest, coming soon">
+                <span class="social-link-icon">P</span>
+                <span>Pinterest <small>Coming soon</small></span>
+            </div>
+            <div class="social-link social-link-inactive" aria-label="Email contact, to be configured">
+                <span class="social-link-icon">@</span>
+                <span>Email contact <small>To be set up</small></span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+    <div class="container">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                <strong>Family Screen Guide</strong>
+                <p>
+                    Practical resources for everyday screen-time moments,
+                    family routines and more offline time together.
+                </p>
+            </div>
+
+            <div class="legal-links">
+                <button type="button" onclick="openModal('privacyModal')">
+                    Privacy
+                </button>
+
+                <button type="button" onclick="openModal('termsModal')">
+                    Terms
+                </button>
+
+                <button type="button" onclick="openModal('disclaimerModal')">
+                    Disclaimer
+                </button>
+
+                <button type="button" onclick="openModal('aboutModal')">
+                    About
+                </button>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Family Screen Guide. All rights reserved.
+        </div>
+
+    </div>
+</footer>
+
+<!-- =========================
+     MODALS
+========================= -->
+
+<div
+    id="privacyModal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="privacyTitle"
+    onclick="closeModalOutside(event, 'privacyModal')">
+
+    <div class="modal-content">
+        <h3 id="privacyTitle">Privacy Policy</h3>
+
+        <p>
+            Family Screen Guide is designed so that the information you enter
+            into its interactive tools is processed in your browser.
+        </p>
+
+        <p>
+            The current website does not require an account or ask you to submit
+            your tool responses to a Family Screen Guide server.
+        </p>
+
+        <p>
+            External services linked from this site, such as Gumroad or social
+            platforms, may have their own privacy policies and practices.
+        </p>
+
+        <button
+            class="btn btn-primary modal-close"
+            type="button"
+            onclick="closeModal('privacyModal')">
+            Close
+        </button>
+    </div>
+</div>
+
+<div
+    id="termsModal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="termsTitle"
+    onclick="closeModalOutside(event, 'termsModal')">
+
+    <div class="modal-content">
+        <h3 id="termsTitle">Terms of Service</h3>
+
+        <p>
+            Family Screen Guide provides general educational resources and
+            interactive tools for personal family use.
+        </p>
+
+        <p>
+            The tools are provided as-is and are intended to help families
+            organize conversations, routines and household expectations.
+        </p>
+
+        <p>
+            You are responsible for deciding what approaches are appropriate
+            for your own family and circumstances.
+        </p>
+
+        <button
+            class="btn btn-primary modal-close"
+            type="button"
+            onclick="closeModal('termsModal')">
+            Close
+        </button>
+    </div>
+</div>
+
+<div
+    id="disclaimerModal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="disclaimerTitle"
+    onclick="closeModalOutside(event, 'disclaimerModal')">
+
+    <div class="modal-content">
+        <h3 id="disclaimerTitle">Educational Disclaimer</h3>
+
+        <p>
+            The information and tools provided by Family Screen Guide are for
+            general educational purposes only.
+        </p>
+
+        <p>
+            They are not medical, psychological, therapeutic, educational or
+            legal advice, and they do not diagnose any condition.
+        </p>
+
+        <p>
+            Every child and family is different. If you have concerns that
+            require professional guidance, consider speaking with an
+            appropriately qualified professional.
+        </p>
+
+        <button
+            class="btn btn-primary modal-close"
+            type="button"
+            onclick="closeModal('disclaimerModal')">
+            Close
+        </button>
+    </div>
+</div>
+
+<div
+    id="aboutModal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="aboutTitle"
+    onclick="closeModalOutside(event, 'aboutModal')">
+
+    <div class="modal-content">
+        <h3 id="aboutTitle">About Family Screen Guide</h3>
+
+        <p>
+            Family Screen Guide exists to make everyday screen-time moments
+            easier to handle.
+        </p>
+
+        <p>
+            Instead of telling families that there is one perfect way to manage
+            technology, we focus on practical tools for real moments:
+            transitions, conversations, family boundaries, routines and
+            offline alternatives.
+        </p>
+
+        <p>
+            The aim is simple: come with a problem and leave with something
+            you can use.
+        </p>
+
+        <button
+            class="btn btn-primary modal-close"
+            type="button"
+            onclick="closeModal('aboutModal')">
+            Close
+        </button>
+    </div>
+</div>
+
+<script>
+/* =========================================================
+   BASIC UTILITIES
+========================================================= */
+
+function escapeHTML(value) {
+    const div = document.createElement("div");
+    div.textContent = String(value ?? "");
+    return div.innerHTML;
+}
+
+function scrollToElement(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+function printResult(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    document.querySelectorAll('[data-print-active="true"]').forEach(el => {
+        el.removeAttribute("data-print-active");
+    });
+
+    target.setAttribute("data-print-active", "true");
+    const cleanup = () => target.removeAttribute("data-print-active");
+    window.addEventListener("afterprint", cleanup, { once: true });
+    window.print();
+    // Some embedded browsers do not fire afterprint consistently.
+    setTimeout(cleanup, 30000);
+}
+
+function addPrintAction(box, id) {
+    if (!box || box.querySelector('[data-print-button="true"]')) return;
+    let actions = box.querySelector(".result-actions");
+    if (!actions) {
+        actions = document.createElement("div");
+        actions.className = "result-actions print-hide";
+        box.appendChild(actions);
+    }
+    actions.classList.add("print-hide");
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "btn btn-secondary";
+    button.textContent = "Print / Save as PDF";
+    button.setAttribute("data-print-button", "true");
+    button.addEventListener("click", () => printResult(id));
+    actions.appendChild(button);
+}
+
+function showResult(id, html) {
+    const box = document.getElementById(id);
+
+    if (!box) return;
+
+    box.innerHTML = html;
+    box.classList.add("visible");
+    addPrintAction(box, id);
+
+    setTimeout(() => {
+        box.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+    }, 50);
+}
+
+function hideResult(id) {
+    const box = document.getElementById(id);
+
+    if (!box) return;
+
+    box.classList.remove("visible");
+    box.innerHTML = "";
+}
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+function toggleMobileMenu() {
+    const nav = document.getElementById("mainNav");
+    const button = document.querySelector(".mobile-menu-btn");
+
+    if (!nav || !button) return;
+
+    const isOpen = nav.classList.toggle("open");
+
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+    );
+}
+
+document.querySelectorAll("#mainNav a").forEach(link => {
+    link.addEventListener("click", () => {
+        const nav = document.getElementById("mainNav");
+        const button = document.querySelector(".mobile-menu-btn");
+
+        nav.classList.remove("open");
+
+        if (button) {
+            button.setAttribute("aria-expanded", "false");
+            button.setAttribute("aria-label", "Open navigation");
+        }
+    });
+});
+
+/* =========================================================
+   TONIGHT'S SCREEN RESET
+========================================================= */
+
+const resetData = {
+    stopping: {
+        intro:
+            "The goal is to make the stopping point predictable before the moment becomes a negotiation.",
+        before:
+            "Tell your child the stopping point before screen time begins. If possible, let them know what they can finish or save before the device goes away.",
+        warning:
+            "Give one calm warning about 5 minutes before the end. Keep it short: “Five minutes left. Start finding a good stopping point.”",
+        ending:
+            "When time is up, use one consistent sentence instead of opening a new discussion: “Screen time is finished for tonight. Let's put it away.”",
+        pushback:
+            "If your child pushes back, acknowledge the feeling without changing the boundary: “I know you want more time. It is still time to stop.”",
+        after:
+            "Have the next small activity ready so the transition has somewhere to go — snack, shower, drawing, a book, helping with dinner or another simple routine."
+    },
+
+    negotiating: {
+        intro:
+            "The aim is to make the rule easier to follow without turning every ending into a fresh negotiation.",
+        before:
+            "Agree on the stopping point before the screen comes out. Make the ending visible and avoid deciding it in the middle of an argument.",
+        warning:
+            "Give one clear warning. Avoid adding several new warnings after the first one, because that can make the ending feel negotiable.",
+        ending:
+            "When the agreed time arrives, repeat the same short phrase: “We agreed that screen time ends here. It is time to put it away.”",
+        pushback:
+            "If the request continues, do not create a new debate. Repeat the boundary once, then move to the next activity.",
+        after:
+            "Move quickly into the next part of the routine. The more predictable the next step becomes, the less the ending has to carry the whole evening."
+    },
+
+    upset: {
+        intro:
+            "The goal is not to make disappointment disappear. It is to keep the boundary clear while giving the feeling room to settle.",
+        before:
+            "Give your child a clear stopping point and a warning. If possible, mention what comes next so the ending does not feel completely abrupt.",
+        warning:
+            "Use a calm five-minute warning: “Five minutes left. Let's get ready to finish.”",
+        ending:
+            "At the stopping point, keep your words simple: “I know you are disappointed. Screen time is finished now.”",
+        pushback:
+            "Do not argue with the feeling. You can say: “It is okay to be upset. The answer is still no more screen time tonight.”",
+        after:
+            "Lower the demand for a few minutes. Offer something simple and familiar rather than immediately expecting a perfect mood."
+    },
+
+    forgetting: {
+        intro:
+            "If the stopping point keeps becoming unclear, the first improvement is usually predictability rather than a more complicated rule.",
+        before:
+            "Decide the stopping point before screen time begins and make sure everyone understands what it is.",
+        warning:
+            "Give a short warning at the same point each time. A consistent routine can make the transition less surprising.",
+        ending:
+            "Use the same sentence each time the screen ends. Keep it neutral and avoid adding a long explanation.",
+        pushback:
+            "If your child says they were not ready, acknowledge that and point back to the plan: “I know. This was the stopping point we agreed on.”",
+        after:
+            "Move directly into a familiar next step so the ending becomes part of the routine rather than a separate conflict."
+    },
+
+    routine: {
+        intro:
+            "Sometimes the problem is not the screen itself but the transition into everything that comes after it.",
+        before:
+            "Look one step ahead. Decide what needs to happen after screen time and make that next step easy to start.",
+        warning:
+            "Use the same warning each evening and remind your child what comes next: “Five minutes, then we are getting ready for dinner.”",
+        ending:
+            "Keep the ending short and predictable. Avoid trying to solve the whole evening in the same conversation.",
+        pushback:
+            "If there is resistance, stay with the immediate next step rather than listing everything that still needs to happen.",
+        after:
+            "Start the next activity together for the first minute if needed. Once the transition has begun, give the routine room to continue."
+    }
+};
+
+function generateReset() {
+    const problem = document.getElementById("resetProblem").value;
+    const timing = document.getElementById("resetTiming").value;
+    const goal = document.getElementById("resetGoal").value;
+
+    const data = resetData[problem];
+
+    const timingLabels = {
+        "after-school": "after school",
+        "before-dinner": "before dinner",
+        "after-dinner": "after dinner",
+        "bedtime": "near bedtime",
+        "weekend": "during flexible weekend time"
+    };
+
+    const goalLabels = {
+        calm: "calm and predictable",
+        quick: "quick and clear",
+        "less-negotiation": "less arguing and negotiating",
+        transition: "an easier transition to the next activity"
+    };
+
+    showResult("resetOutput", `
+        <h4 class="result-heading">Your screen-time reset</h4>
+
+        <p class="result-intro">
+            You are working on a ${escapeHTML(goalLabels[goal])} ending
+            ${escapeHTML(timingLabels[timing])}.
+            ${escapeHTML(data.intro)}
+        </p>
+
+        <div class="result-grid">
+
+            <div class="result-step">
+                <small>Before</small>
+                <strong>Set the stopping point</strong>
+                <p>${escapeHTML(data.before)}</p>
+            </div>
+
+            <div class="result-step">
+                <small>5-minute warning</small>
+                <strong>Make the ending visible</strong>
+                <p>${escapeHTML(data.warning)}</p>
+            </div>
+
+            <div class="result-step">
+                <small>When time ends</small>
+                <strong>Keep the message simple</strong>
+                <p>${escapeHTML(data.ending)}</p>
+            </div>
+
+            <div class="result-step">
+                <small>If there is pushback</small>
+                <strong>Stay calm and consistent</strong>
+                <p>${escapeHTML(data.pushback)}</p>
+            </div>
+
+            <div class="result-step">
+                <small>After</small>
+                <strong>Give the transition somewhere to go</strong>
+                <p>${escapeHTML(data.after)}</p>
+            </div>
+
+        </div>
+
+        <div class="next-step">
+            <strong>Need clearer rules for tomorrow?</strong>
+            <p>
+                Build a Family Screen Plan to turn tonight's approach into a
+                simple household agreement.
+            </p>
+        </div>
+
+        <div class="result-actions">
+            <button class="btn btn-secondary" type="button"
+                onclick="scrollToElement('agreementCard')">
+                Build a Family Screen Plan
+            </button>
+
+            <button class="btn btn-soft" type="button"
+                onclick="window.print()">
+                Print / Save This
+            </button>
+        </div>
+    `);
+}
+
+/* =========================================================
+   FAMILY SCREEN AGREEMENT
+========================================================= */
+
+function generateAgreement() {
+
+    const nameInput = document.getElementById("childName");
+    const hoursInput = document.getElementById("allowedHours");
+
+    const nameError = document.getElementById("childNameError");
+    const hoursError = document.getElementById("allowedHoursError");
+
+    let valid = true;
+
+    const name = nameInput.value.trim();
+    const hours = parseFloat(hoursInput.value);
+
+    if (!name) {
+        nameError.style.display = "block";
+        valid = false;
+    } else {
+        nameError.style.display = "none";
+    }
+
+    if (Number.isNaN(hours) || hours < 0 || hours > 12) {
+        hoursError.style.display = "block";
+        valid = false;
+    } else {
+        hoursError.style.display = "none";
+    }
+
+    if (!valid) {
+        return;
+    }
+
+    const times =
+        document.getElementById("deviceTimes").value.trim() ||
+        "During meals and important family conversations";
+
+    const places =
+        document.getElementById("devicePlaces").value.trim() ||
+        "The dining table and bedrooms";
+
+    const schoolwork =
+        document.getElementById("schoolworkRule").value.trim() ||
+        "Schoolwork is handled before recreational screen time";
+
+    const bedtime =
+        document.getElementById("bedtimeRule").value.trim() ||
+        "Devices are put away as part of the evening routine";
+
+    const transition =
+        document.getElementById("transitionRule").value.trim() ||
+        "We finish at the agreed stopping point and put the device on its charger";
+
+    const parentCommitment =
+        document.getElementById("parentCommitment").value.trim() ||
+        "I will give a clear warning and keep the conversation calm";
+
+    const reviewDateValue =
+        document.getElementById("reviewDate").value;
+
+    let reviewDate = "________________";
+
+    if (reviewDateValue) {
+        const parsed = new Date(reviewDateValue + "T00:00:00");
+
+        reviewDate = parsed.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
+    }
+
+    const safeName = escapeHTML(name);
+    const safeTimes = escapeHTML(times);
+    const safePlaces = escapeHTML(places);
+    const safeSchoolwork = escapeHTML(schoolwork);
+    const safeBedtime = escapeHTML(bedtime);
+    const safeTransition = escapeHTML(transition);
+    const safeParent = escapeHTML(parentCommitment);
+    const safeReview = escapeHTML(reviewDate);
+
+    const output = document.getElementById("agreementOutput");
+
+    output.innerHTML = `
+        <div id="printArea">
+
+            <div class="agreement-paper">
+
+                <div class="paper-brand">
+                    Family Screen Guide
+                </div>
+
+                <h3>Our Family Screen Plan</h3>
+
+                <p class="paper-intro">
+                    This plan is a shared starting point for clearer,
+                    more predictable screen-time routines.
+                </p>
+
+                <div class="agreement-rule">
+                    <strong>Family member</strong>
+                    <span>${safeName}</span>
+                </div>
+
+                <div class="agreement-rule">
+                    <strong>Daily recreational screen time</strong>
+                    <span>${escapeHTML(hours)} hours, according to our family plan.</span>
+                </div>
+
+                <div class="agreement-rule">
+                    <strong>Screen-free times</strong>
+                    <span>${safeTimes}</span>
+                </div>
+
+                <div class="agreement-rule">
+                    <strong>Screen-free places</strong>
+                    <span>${safePlaces}</span>
+                </div>
+
+                <div class="agreement-rule">
+                    <strong>Schoolwork</strong>
+                    <span>${safeSchoolwork}</span>
+                </div>
+
+                <div class="agreement-rule">
+                    <strong>Evening routine</strong>
+                    <span>${safeBedtime}</span>
+                </div>
+
+                <div class="agreement-rule">
+                    <strong>When screen time ends</strong>
+                    <span>${safeTransition}</span>
+                </div>
+
+                <div class="agreement-rule">
+                    <strong>Parent commitment</strong>
+                    <span>${safeParent}</span>
+                </div>
+
+                <div class="agreement-review">
+                    <strong>Review date:</strong> ${safeReview}
+                    <br>
+                    We can adjust this plan when our family's needs or routines change.
+                </div>
+
+                <div class="agreement-signatures">
+
+                    <div class="signature-line">
+                        Child / Family member
+                    </div>
+
+                    <div class="signature-line">
+                        Parent / Caregiver
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="result-actions print-hide">
+            <button
+                class="btn btn-primary"
+                type="button"
+                onclick="printResult('printArea')">
+                Print / Save as PDF
+            </button>
+
+            <button
+                class="btn btn-secondary"
+                type="button"
+                onclick="scrollToElement('scriptCard')">
+                Need help explaining it?
+            </button>
+        </div>
+    `;
+
+    output.classList.add("visible");
+}
+
+/* =========================================================
+   WHAT SHOULD I SAY
+========================================================= */
+
+const scriptsData = {
+
+    timeUp: {
+        title: "Screen time is ending.",
+        quote:
+            "Five minutes left. Start finding a good stopping point, then we'll put the device away.",
+        why:
+            "A short warning gives the child a chance to shift attention before the stopping point.",
+        push:
+            "I know you want to keep going. Screen time is still finished now.",
+        avoid:
+            "Avoid adding a long explanation or opening a new negotiation at the exact moment time ends."
+    },
+
+    fiveMore: {
+        title: "“Can I have five more minutes?”",
+        quote:
+            "I know you want more time because you're enjoying it. We agreed on this stopping point, so we're sticking with it today.",
+        why:
+            "You can acknowledge the request without turning the boundary into a debate.",
+        push:
+            "You can be disappointed. The answer is still no more screen time tonight.",
+        avoid:
+            "Avoid making a new deal every time the original time is reached."
+    },
+
+    upset: {
+        title: "My child is upset when the screen turns off.",
+        quote:
+            "I can see that you're really disappointed. It's okay to feel upset. Screen time is still finished.",
+        why:
+            "The feeling can be acknowledged without changing the boundary.",
+        push:
+            "Let's give you a minute to settle down. Then we'll move on to what's next.",
+        avoid:
+            "Avoid trying to win the argument or demanding that the child stop feeling upset immediately."
+    },
+
+    negotiating: {
+        title: "My child keeps negotiating.",
+        quote:
+            "I hear you asking for more time. We've already decided when screen time ends, so we're not going to renegotiate it right now.",
+        why:
+            "A predictable response can reduce the need to keep finding new arguments.",
+        push:
+            "I know you don't like the answer. I'm going to stick with the plan.",
+        avoid:
+            "Avoid adding five new reasons for the rule every time the request comes back."
+    },
+
+    newRule: {
+        title: "We are introducing a new family rule.",
+        quote:
+            "We're trying a new routine to make evenings easier. Screens will stay away during dinner, and we'll review how the plan is working together.",
+        why:
+            "Framing the rule as a family routine can make it feel less like a punishment.",
+        push:
+            "You don't have to love the new rule. We're going to try it consistently and then talk about how it went.",
+        avoid:
+            "Avoid presenting a new rule as a threat or promising that it will never change."
+    },
+
+    explaining: {
+        title: "I want to explain the boundary.",
+        quote:
+            "Screens are one part of our day. We also need time for meals, sleep routines, movement, family time and other things we enjoy. That's why we're making room for both.",
+        why:
+            "The explanation focuses on the family's routine rather than making the screen itself the enemy.",
+        push:
+            "I know screens are fun. This boundary is about making room for the rest of our day too.",
+        avoid:
+            "Avoid using fear-based claims or suggesting that one screen-time number tells you everything about a child."
+    },
+
+    restart: {
+        title: "We had a difficult evening and need to restart.",
+        quote:
+            "Last night did not go the way we wanted. That's okay. We're not going to keep arguing about it. Let's try the plan again tonight.",
+        why:
+            "A reset keeps one difficult evening from becoming the identity of the whole routine.",
+        push:
+            "We don't need to get yesterday perfect. We just need to decide what we're doing next.",
+        avoid:
+            "Avoid bringing up every previous mistake while trying to start again."
+    }
+};
+
+function displayScript() {
+
+    const selected =
+        document.getElementById("scriptScenario").value;
+
+    const data = scriptsData[selected];
+
+    const output = document.getElementById("scriptOutput");
+
+    output.innerHTML = `
+        <div class="script-result">
+
+            <span class="script-label">Try this</span>
+
+            <h4>${escapeHTML(data.title)}</h4>
+
+            <div class="script-quote">
+                <strong>What to say</strong>
+                <p>“${escapeHTML(data.quote)}”</p>
+            </div>
+
+            <div class="script-block">
+                <strong>Why it can help</strong>
+                <p>${escapeHTML(data.why)}</p>
+            </div>
+
+            <div class="script-block">
+                <strong>If they keep pushing</strong>
+                <p>${escapeHTML(data.push)}</p>
+            </div>
+
+            <div class="script-block">
+                <strong>Avoid</strong>
+                <p>${escapeHTML(data.avoid)}</p>
+            </div>
+
+            <div class="result-actions">
+                <button
+                    class="btn btn-primary"
+                    type="button"
+                    onclick="copyScript()">
+                    Copy Script
+                </button>
+
+                <button
+                    class="btn btn-secondary"
+                    type="button"
+                    onclick="scrollToElement('agreementCard')">
+                    Build the Rule Behind It
+                </button>
+            </div>
+
+        </div>
+    `;
+
+    output.classList.add("visible");
+    addPrintAction(output, "scriptOutput");
+}
+
+function copyScript() {
+
+    const selected =
+        document.getElementById("scriptScenario").value;
+
+    const data = scriptsData[selected];
+
+    const textToCopy =
+`What to say:
+
+"${data.quote}"
+
+If they keep pushing:
+
+"${data.push}"`;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+
+        navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+                const button =
+                    document.querySelector(
+                        '#scriptOutput button.btn-primary'
+                    );
+
+                if (button) {
+                    const original = button.textContent;
+                    button.textContent = "Copied";
+
+                    setTimeout(() => {
+                        button.textContent = original;
+                    }, 1600);
+                }
+            })
+            .catch(() => {
+                fallbackCopy(textToCopy);
+            });
+
+    } else {
+        fallbackCopy(textToCopy);
+    }
+}
+
+function fallbackCopy(text) {
+
+    const textarea = document.createElement("textarea");
+
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+
+    document.body.appendChild(textarea);
+
+    textarea.focus();
+    textarea.select();
+
+    try {
+        document.execCommand("copy");
+    } catch (error) {
+        console.warn("Copy failed:", error);
+    }
+
+    document.body.removeChild(textarea);
+}
+
+/* =========================================================
+   ACTIVITY GENERATOR
+========================================================= */
+
+const activitiesDatabase = [
+
+    {
+        title: "Build a blanket fort",
+        description:
+            "Use blankets, cushions and chairs to create a small hideaway, then read, draw or tell stories inside.",
+        time: ["20", "30", "60"],
+        energy: ["calm", "creative"],
+        location: ["indoors"],
+        parent: ["alone", "parent", "family"],
+        prep: "Blankets, cushions and a few safe household items.",
+        start: "Give your child one simple challenge: build the coziest fort they can.",
+        fun: "Add a name, sign or imaginary purpose to the fort."
+    },
+
+    {
+        title: "Kitchen helper challenge",
+        description:
+            "Choose a simple snack or meal and let your child handle one real part of the preparation.",
+        time: ["20", "30", "60"],
+        energy: ["creative", "calm"],
+        location: ["indoors"],
+        parent: ["parent", "family"],
+        prep: "A simple recipe and ingredients already available.",
+        start: "Let your child choose one job they can own from start to finish.",
+        fun: "Give the finished snack a silly restaurant name."
+    },
+
+    {
+        title: "Paper airplane challenge",
+        description:
+            "Make a few paper airplanes and test which design flies farthest, straightest or most accurately.",
+        time: ["20", "30"],
+        energy: ["creative", "active"],
+        location: ["indoors", "outdoors"],
+        parent: ["alone", "parent", "family"],
+        prep: "Paper and an open space.",
+        start: "Make one simple airplane first, then change one thing at a time.",
+        fun: "Create a tiny family competition with different categories."
+    },
+
+    {
+        title: "Household scavenger hunt",
+        description:
+            "Create a short list of things to find around the house without turning the activity into a big setup.",
+        time: ["10", "20"],
+        energy: ["active"],
+        location: ["indoors"],
+        parent: ["alone", "parent", "family"],
+        prep: "A short list of five to ten things.",
+        start: "Give the first clue and let the child work out where to look next.",
+        fun: "Add one silly clue or mystery object."
+    },
+
+    {
+        title: "Draw a six-panel comic",
+        description:
+            "Create a tiny comic with a beginning, problem, surprise and ending.",
+        time: ["20", "30"],
+        energy: ["creative", "calm"],
+        location: ["indoors"],
+        parent: ["alone", "parent"],
+        prep: "Paper and pencils, pens or crayons.",
+        start: "Start with: “A normal day suddenly becomes strange when…”",
+        fun: "Take turns adding one panel to the story."
+    },
+
+    {
+        title: "Backyard nature hunt",
+        description:
+            "Look for different textures, shapes, colours or natural objects without needing a formal nature lesson.",
+        time: ["20", "30", "60"],
+        energy: ["active", "calm"],
+        location: ["outdoors"],
+        parent: ["alone", "parent", "family"],
+        prep: "Shoes and a simple list if useful.",
+        start: "Pick five things to notice rather than five things to collect.",
+        fun: "Try to find the smallest, roughest and most unusual thing you can spot."
+    },
+
+    {
+        title: "Build the tallest tower",
+        description:
+            "Use blocks, cups, cardboard or other safe materials to see how tall a structure you can make.",
+        time: ["10", "20", "30"],
+        energy: ["creative"],
+        location: ["indoors"],
+        parent: ["alone", "parent", "family"],
+        prep: "Blocks, cups or recyclable cardboard.",
+        start: "Set a short challenge: build something taller than your hand.",
+        fun: "Change the rules: tallest, strongest or strangest."
+    },
+
+    {
+        title: "Family card game",
+        description:
+            "Pick a simple card game everyone already knows or learn one together.",
+        time: ["20", "30", "60"],
+        energy: ["calm", "family"],
+        location: ["indoors"],
+        parent: ["family"],
+        prep: "A deck of cards.",
+        start: "Choose one game and play one short round before deciding whether to continue.",
+        fun: "Let the winner choose the next game."
+    },
+
+    {
+        title: "Living-room movement circuit",
+        description:
+            "Create three or four simple movement stations using safe household space.",
+        time: ["10", "20", "30"],
+        energy: ["active"],
+        location: ["indoors"],
+        parent: ["alone", "parent", "family"],
+        prep: "A safe open area and a few household objects if useful.",
+        start: "Try jumping, balancing, crawling or marching for short intervals.",
+        fun: "Let your child invent the final station."
+    },
+
+    {
+        title: "Photo-story memory game",
+        description:
+            "Look through a few old family photos and invite everyone to tell what they remember.",
+        time: ["20", "30"],
+        energy: ["calm"],
+        location: ["indoors"],
+        parent: ["parent", "family"],
+        prep: "A small selection of family photos.",
+        start: "Choose one photo and ask: “What do you remember about this day?”",
+        fun: "See who remembers a detail nobody else noticed."
+    },
+
+    {
+        title: "Make a mini indoor obstacle course",
+        description:
+            "Use cushions, tape-free pathways and safe household objects to create a short course.",
+        time: ["10", "20", "30"],
+        energy: ["active"],
+        location: ["indoors"],
+        parent: ["alone", "parent", "family"],
+        prep: "Safe open floor space and soft household items.",
+        start: "Create three simple stations and walk through them first.",
+        fun: "Let the child rename every station."
+    },
+
+    {
+        title: "Simple gardening job",
+        description:
+            "Water plants, prepare a small pot, pull a few weeds or check what is growing.",
+        time: ["20", "30", "60"],
+        energy: ["calm", "active"],
+        location: ["outdoors"],
+        parent: ["alone", "parent", "family"],
+        prep: "A safe garden or a few pots.",
+        start: "Give one concrete job rather than asking them to “help with the garden.”",
+        fun: "Choose one plant to watch and check again later."
+    },
+
+    {
+        title: "Read and predict",
+        description:
+            "Read part of a book together and stop before the next part to guess what happens.",
+        time: ["10", "20", "30"],
+        energy: ["calm"],
+        location: ["indoors"],
+        parent: ["alone", "parent"],
+        prep: "A book your child already enjoys or is curious about.",
+        start: "Read for ten minutes and pause at an interesting moment.",
+        fun: "Make three predictions and see which one comes closest."
+    },
+
+    {
+        title: "Make a family playlist without screens",
+        description:
+            "Choose favourite songs from memory and talk about when you like listening to them.",
+        time: ["20", "30"],
+        energy: ["calm", "family"],
+        location: ["indoors"],
+        parent: ["parent", "family"],
+        prep: "Paper and a pencil if useful.",
+        start: "Each person chooses one song and explains why they picked it.",
+        fun: "Give the playlist a funny family name."
+    },
+
+    {
+        title: "Create a cardboard invention",
+        description:
+            "Turn a box or cardboard pieces into a pretend machine, vehicle, shop or creature.",
+        time: ["20", "30", "60"],
+        energy: ["creative"],
+        location: ["indoors"],
+        parent: ["alone", "parent", "family"],
+        prep: "Clean cardboard, paper and safe craft materials.",
+        start: "Give one challenge: invent something that solves a silly problem.",
+        fun: "Write a tiny instruction manual for the invention."
+    },
+
+    {
+        title: "Neighbourhood observation walk",
+        description:
+            "Take a short walk and notice things you normally pass without looking closely.",
+        time: ["20", "30", "60"],
+        energy: ["active", "calm"],
+        location: ["outdoors"],
+        parent: ["parent", "family"],
+        prep: "Shoes and weather-appropriate clothing.",
+        start: "Choose one theme: doors, trees, sounds, signs or interesting shapes.",
+        fun: "Try to notice five things you had never paid attention to before."
+    },
+
+    {
+        title: "Make a boredom jar",
+        description:
+            "Write small offline activity ideas on paper and put them in a jar for future transitions.",
+        time: ["20", "30"],
+        energy: ["creative", "calm"],
+        location: ["indoors"],
+        parent: ["alone", "parent", "family"],
+        prep: "A jar or box, paper and something to write with.",
+        start: "Write ten ideas before trying to decorate the jar.",
+        fun: "Add a few wildcard ideas such as “build something ridiculous.”"
+    },
+
+    {
+        title: "Puzzle corner",
+        description:
+            "Start a puzzle that can be completed in one sitting or returned to later.",
+        time: ["20", "30", "60"],
+        energy: ["calm"],
+        location: ["indoors"],
+        parent: ["alone", "parent", "family"],
+        prep: "A puzzle appropriate for the family.",
+        start: "Sort pieces into a few simple groups before starting.",
+        fun: "Work on one unusual section rather than only the border."
+    },
+
+    {
+        title: "Story swap",
+        description:
+            "One person starts a story with two sentences, then another person continues it.",
+        time: ["10", "20", "30"],
+        energy: ["creative", "calm"],
+        location: ["indoors", "outdoors"],
+        parent: ["parent", "family"],
+        prep: "Nothing required.",
+        start: "Begin with: “We opened the door and found something unexpected…”",
+        fun: "Each person must add one surprising detail."
+    },
+
+    {
+        title: "Outdoor chalk challenge",
+        description:
+            "Draw a giant map, game board, maze or imaginary town using sidewalk chalk.",
+        time: ["20", "30", "60"],
+        energy: ["creative", "active"],
+        location: ["outdoors"],
+        parent: ["alone", "parent", "family"],
+        prep: "Sidewalk chalk and a suitable surface.",
+        start: "Draw one large shape and decide together what it becomes.",
+        fun: "Turn the drawing into a simple walk-through game."
+    }
+];
+
+function generateActivity() {
+
+    const time =
+        document.getElementById("activityTime").value;
+
+    const energy =
+        document.getElementById("activityEnergy").value;
+
+    const location =
+        document.getElementById("activityLocation").value;
+
+    const parent =
+        document.getElementById("activityParent").value;
+
+    let matches = activitiesDatabase.filter(activity => {
+
+        const timeMatch =
+            activity.time.includes(time);
+
+        const energyMatch =
+            activity.energy.includes(energy);
+
+        const locationMatch =
+            location === "either" ||
+            activity.location.includes(location);
+
+        const parentMatch =
+            activity.parent.includes(parent);
+
+        return timeMatch &&
+               energyMatch &&
+               locationMatch &&
+               parentMatch;
+    });
+
+    /*
+       If the exact combination is too narrow,
+       progressively relax the filter so the user
+       always gets a useful result.
+    */
+
+    if (matches.length === 0) {
+        matches = activitiesDatabase.filter(activity => {
+            const timeMatch = activity.time.includes(time);
+            const locationMatch =
+                location === "either" ||
+                activity.location.includes(location);
+
+            return timeMatch && locationMatch;
+        });
+    }
+
+    if (matches.length === 0) {
+        matches = activitiesDatabase;
+    }
+
+    const activity =
+        matches[Math.floor(Math.random() * matches.length)];
+
+    const category =
+        activity.energy.includes("creative")
+            ? "Creative"
+            : activity.energy.includes("active")
+                ? "Active"
+                : "Calm";
+
+    showResult("activityOutput", `
+        <div class="activity-main">
+
+            <span class="activity-category">
+                ${escapeHTML(category)}
+            </span>
+
+            <h4>${escapeHTML(activity.title)}</h4>
+
+            <p>${escapeHTML(activity.description)}</p>
+
+            <div class="activity-details">
+
+                <div class="activity-detail">
+                    <small>Prep</small>
+                    <span>${escapeHTML(activity.prep)}</span>
+                </div>
+
+                <div class="activity-detail">
+                    <small>How to start</small>
+                    <span>${escapeHTML(activity.start)}</span>
+                </div>
+
+                <div class="activity-detail">
+                    <small>Make it fun</small>
+                    <span>${escapeHTML(activity.fun)}</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="next-step">
+            <strong>Need a smoother screen-time transition?</strong>
+            <p>
+                Build a Tonight's Screen Reset so the activity becomes part
+                of the transition instead of a last-minute idea.
+            </p>
+        </div>
+
+        <div class="result-actions">
+            <button
+                class="btn btn-primary"
+                type="button"
+                onclick="generateActivity()">
+                Try Another
+            </button>
+
+            <button
+                class="btn btn-secondary"
+                type="button"
+                onclick="scrollToElement('resetCard')">
+                Build a Transition Plan
+            </button>
+        </div>
+    `);
+}
+
+/* =========================================================
+   SCREEN-TIME REFLECTION
+========================================================= */
+
+function generateReflection() {
+
+    const hours =
+        parseFloat(
+            document.getElementById("reflectionHours").value
+        );
+
+    const error =
+        document.getElementById("reflectionHoursError");
+
+    if (Number.isNaN(hours) || hours < 0 || hours > 24) {
+        error.style.display = "block";
+        hideResult("reflectionOutput");
+        return;
+    }
+
+    error.style.display = "none";
+
+    const age =
+        document.getElementById("reflectionAge").value;
+
+    const sleep =
+        document.getElementById("reflectionSleep").value;
+
+    const meals =
+        document.getElementById("reflectionMeals").value;
+
+    const movement =
+        document.getElementById("reflectionMovement").value;
+
+    const transitions =
+        document.getElementById("reflectionTransitions").value;
+
+    const connection =
+        document.getElementById("reflectionConnection").value;
+
+    const school =
+        document.getElementById("reflectionSchool").value;
+
+    const ageLabels = {
+        preschool: "Preschool age",
+        school: "School age",
+        teen: "Early teen"
+    };
+
+    let manageable = [];
+    let review = [];
+
+    if (sleep === "steady") {
+        manageable.push("The sleep routine is generally steady.");
+    } else {
+        review.push("The evening or sleep routine may be worth looking at.");
+    }
+
+    if (meals === "protected") {
+        manageable.push("Meals and family moments have protected space.");
+    } else {
+        review.push("Consider whether screens are regularly entering meals or family moments.");
+    }
+
+    if (movement === "regular") {
+        manageable.push("There is regular room for active time.");
+    } else {
+        review.push("Look at whether the family routine leaves enough practical room for movement.");
+    }
+
+    if (transitions === "smooth") {
+        manageable.push("Transitions away from screens are generally manageable.");
+    } else {
+        review.push("Screen-time transitions may be one of the most useful places to make a small change.");
+    }
+
+    if (connection === "space") {
+        manageable.push("There is room for offline interests and family connection.");
+    } else {
+        review.push("Consider whether screen time is regularly crowding out offline interests or connection.");
+    }
+
+    if (school === "managed") {
+        manageable.push("Schoolwork and responsibilities are generally fitting into the routine.");
+    } else {
+        review.push("Look at whether recreational screen time is making schoolwork or responsibilities harder to fit in.");
+    }
+
+    if (manageable.length === 0) {
+        manageable.push(
+            "There is not enough information here to label a part of the routine as clearly manageable."
+        );
+    }
+
+    if (review.length === 0) {
+        review.push(
+            "Nothing in these answers stands out as an obvious area to change right now."
+        );
+    }
+
+    let nextStep;
+
+    if (transitions !== "smooth") {
+        nextStep =
+            "Start with one screen-time transition this week. A clearer stopping point and a prepared next activity may be more useful than changing everything at once.";
+    } else if (meals !== "protected") {
+        nextStep =
+            "Try protecting one predictable family moment from screens, such as one meal or a short evening conversation.";
+    } else if (sleep !== "steady") {
+        nextStep =
+            "Look at the evening routine as a whole. Choose one small change that makes the transition toward bedtime more predictable.";
+    } else {
+        nextStep =
+            "Keep what is working and choose one small part of the routine to observe this week rather than trying to change everything.";
+    }
+
+    showResult("reflectionOutput", `
+        <h4 class="result-heading">Your current pattern</h4>
+
+        <p class="result-intro">
+            For a ${escapeHTML(ageLabels[age])} child, you reported about
+            <strong>${escapeHTML(hours)} hours</strong> of recreational screen
+            time per day.
+            That number is descriptive only. It is not being used here as a
+            recommended limit or health threshold.
+        </p>
+
+        <div class="reflection-summary">
+
+            <div class="reflection-card">
+                <h4>What looks manageable</h4>
+                <ul>
+                    ${manageable
+                        .map(item => `<li>${escapeHTML(item)}</li>`)
+                        .join("")}
+                </ul>
+            </div>
+
+            <div class="reflection-card">
+                <h4>What may be worth reviewing</h4>
+                <ul>
+                    ${review
+                        .map(item => `<li>${escapeHTML(item)}</li>`)
+                        .join("")}
+                </ul>
+            </div>
+
+            <div class="reflection-card reflection-highlight">
+                <h4>One small thing to try this week</h4>
+                <p>${escapeHTML(nextStep)}</p>
+            </div>
+
+        </div>
+
+        <div class="next-step">
+            <strong>Want to turn that reflection into action?</strong>
+            <p>
+                Start with Tonight's Screen Reset and work on one real
+                screen-time moment instead of trying to change the entire routine at once.
+            </p>
+        </div>
+
+        <div class="result-actions">
+            <button
+                class="btn btn-primary"
+                type="button"
+                onclick="scrollToElement('resetCard')">
+                Start Tonight's Reset
+            </button>
+        </div>
+
+        <p style="margin-top:14px;font-size:.75rem;color:var(--muted);">
+            This is a reflection tool, not a diagnosis or professional assessment.
+        </p>
+    `);
+}
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+let activeModal = null;
+
+function openModal(modalId) {
+
+    const modal = document.getElementById(modalId);
+
+    if (!modal) return;
+
+    modal.classList.add("open");
+    activeModal = modalId;
+
+    document.body.style.overflow = "hidden";
+
+    const closeButton =
+        modal.querySelector(".modal-close");
+
+    if (closeButton) {
+        setTimeout(() => closeButton.focus(), 30);
+    }
+}
+
+function closeModal(modalId) {
+
+    const modal = document.getElementById(modalId);
+
+    if (!modal) return;
+
+    modal.classList.remove("open");
+
+    if (activeModal === modalId) {
+        activeModal = null;
+    }
+
+    document.body.style.overflow = "";
+}
+
+function closeModalOutside(event, modalId) {
+
+    if (event.target.id === modalId) {
+        closeModal(modalId);
+    }
+}
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape" && activeModal) {
+        closeModal(activeModal);
+    }
+
+});
+
+/* =========================================================
+   DEFAULT INITIALIZATION
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    displayScript();
+
+    const toolkitCta = document.getElementById("toolkitCta");
+    if (toolkitCta) {
+        toolkitCta.addEventListener("click", () => {
+            const status = document.getElementById("toolkitStatus");
+            if (status) {
+                status.textContent = "The toolkit is not available to purchase yet. The real Gumroad product link must be added before launch.";
+            }
+        });
+    }
+
+    /*
+       Give the agreement a sensible default review date
+       30 days from today, while allowing the user to change it.
+    */
+
+    const reviewInput =
+        document.getElementById("reviewDate");
+
+    if (reviewInput) {
+
+        const date = new Date();
+
+        date.setDate(date.getDate() + 30);
+
+        const year = date.getFullYear();
+        const month =
+            String(date.getMonth() + 1).padStart(2, "0");
+        const day =
+            String(date.getDate()).padStart(2, "0");
+
+        reviewInput.value =
+            `${year}-${month}-${day}`;
+    }
+
+});
+</script>
+
+</body>
+</html>
