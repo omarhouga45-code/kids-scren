@@ -1714,9 +1714,11 @@ footer {
     /* Preserve the designed agreement as a real, colorful printable page. */
     [data-print-active="true"] .agreement-paper {
         box-sizing: border-box !important;
-        /* Scale the agreement itself so all of its content stays on one A4 sheet. */
-        zoom: 0.62 !important;
-        width: 161.2903% !important;
+        /* Force a compact print layout; keep the visual design while reducing page height. */
+        zoom: 0.40 !important;
+        width: 250% !important;
+        max-width: none !important;
+        margin: 0 !important;
         border: 3px solid #354d43 !important;
         outline: 2px dashed #e5b94b !important;
         outline-offset: -10px !important;
