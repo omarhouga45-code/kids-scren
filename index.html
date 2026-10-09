@@ -955,74 +955,134 @@ textarea:focus {
     line-height: 1.6;
 }
 
-/* ---------- Agreement ---------- */
+/* ---------- Kid-friendly printable agreement ---------- */
 
 .agreement-paper {
-    background: white;
-    border: 1px solid #d5dcd5;
-    padding: 32px;
-    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    background: #fffdf7;
+    border: 3px solid #354d43;
+    outline: 2px dashed #e5b94b;
+    outline-offset: -10px;
+    padding: 34px;
+    border-radius: 18px;
     margin-top: 0;
-    color: #222b27;
+    color: #26372f;
+    box-shadow: 0 8px 24px rgba(35, 55, 44, 0.08);
 }
 
 .agreement-paper .paper-brand {
-    color: var(--sage-dark);
+    color: #476b55;
     font-size: 0.72rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
+    text-align: center;
+}
+
+.agreement-sticker-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 12px 0 6px;
+    font-size: 1.5rem;
 }
 
 .agreement-paper h3 {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 2rem;
-    line-height: 1.15;
-    margin: 8px 0 8px;
+    font-size: 2.05rem;
+    line-height: 1.12;
+    text-align: center;
+    margin: 8px 0;
+    color: #253e32;
 }
 
 .agreement-paper .paper-intro {
     color: #59635f;
-    font-size: 0.9rem;
-    margin-bottom: 24px;
+    font-size: 0.92rem;
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 22px;
+}
+
+.agreement-kid-name {
+    background: #f2f6df;
+    border: 2px dashed #b3c86d;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 0 0 12px;
+    text-align: center;
+    font-size: 1.02rem;
+}
+
+.agreement-kid-name strong {
+    font-size: 1.2rem;
+    color: #294a36;
 }
 
 .agreement-rule {
     display: grid;
     grid-template-columns: 170px 1fr;
-    gap: 18px;
-    padding: 13px 0;
-    border-top: 1px solid #e2e5e1;
+    gap: 14px;
+    padding: 12px 0;
+    border-top: 1px solid #e2e8df;
 }
 
 .agreement-rule strong {
-    font-size: 0.82rem;
+    font-size: 0.84rem;
+    color: #344e3e;
 }
 
 .agreement-rule span {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     color: #4f5955;
+    overflow-wrap: anywhere;
+}
+
+.agreement-reward {
+    margin-top: 16px;
+    padding: 16px;
+    background: #fff3ce;
+    border: 2px solid #f0cd70;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.agreement-reward .reward-label {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    color: #75551b;
+}
+
+.agreement-reward .reward-choice {
+    margin-top: 6px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.22rem;
+    font-weight: 700;
+    color: #68491b;
 }
 
 .agreement-review {
-    margin-top: 24px;
-    padding: 15px;
-    background: #f4f6f2;
-    border-radius: 9px;
+    margin-top: 18px;
+    padding: 13px 15px;
+    background: #edf4ed;
+    border-radius: 10px;
     font-size: 0.82rem;
 }
 
 .agreement-signatures {
-    margin-top: 38px;
+    margin-top: 36px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 36px;
+    gap: 30px;
 }
 
 .signature-line {
     border-top: 1px solid #333;
-    padding-top: 7px;
-    font-size: 0.78rem;
+    padding-top: 8px;
+    font-size: 0.8rem;
 }
 
 /* ---------- Reflection ---------- */
@@ -1988,6 +2048,16 @@ footer {
                     </div>
 
                     <div class="form-group">
+                        <label for="childAge">Child's age</label>
+                        <select id="childAge">
+                            <option value="3–5 years">3–5 years</option>
+                            <option value="6–8 years" selected>6–8 years</option>
+                            <option value="9–10 years">9–10 years</option>
+                        </select>
+                        <div class="field-note">Helps make the promise feel right for your child's age.</div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="allowedHours">Agreed recreational screen time per day</label>
                         <input
                             type="number"
@@ -2056,6 +2126,25 @@ footer {
                             id="parentCommitment"
                             maxlength="220"
                             placeholder="e.g. I will give a clear warning and keep the conversation calm">
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="rewardChoice">A small promise from the parent (choose something realistic)</label>
+                        <select id="rewardChoice">
+                            <option value="A special story or extra reading time together (free)">A special story together — free</option>
+                            <option value="Choose a family game or activity (free)">Choose a family game or activity — free</option>
+                            <option value="A walk, park visit, or outdoor adventure (free or low-cost)">A walk or outdoor adventure — free or low-cost</option>
+                            <option value="A small favorite treat, if it fits our budget">A small favorite treat, if it fits our budget</option>
+                            <option value="A little surprise chosen by my parent, within our family budget">A little surprise within our family budget</option>
+                            <option value="We will choose a reward together">We'll choose something together</option>
+                            <option value="custom">I'll write my own promise</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="customReward">Your own promise (optional)</label>
+                        <input type="text" id="customReward" maxlength="180" placeholder="e.g. We will make popcorn and watch a family movie together">
+                        <div class="field-note">Only promise something you can comfortably offer. It doesn't need to cost money.</div>
                     </div>
 
                     <div class="form-group">
@@ -2939,6 +3028,9 @@ function generateAgreement() {
 
     const nameInput = document.getElementById("childName");
     const hoursInput = document.getElementById("allowedHours");
+    const age = document.getElementById("childAge").value;
+    const rewardSelect = document.getElementById("rewardChoice");
+    const customRewardInput = document.getElementById("customReward");
 
     const nameError = document.getElementById("childNameError");
     const hoursError = document.getElementById("allowedHoursError");
@@ -2990,6 +3082,11 @@ function generateAgreement() {
         document.getElementById("parentCommitment").value.trim() ||
         "I will give a clear warning and keep the conversation calm";
 
+    const reward = customRewardInput.value.trim() ||
+        (rewardSelect.value === "custom"
+            ? "We will choose a small, realistic promise together"
+            : rewardSelect.value);
+
     const reviewDateValue =
         document.getElementById("reviewDate").value;
 
@@ -3006,6 +3103,8 @@ function generateAgreement() {
     }
 
     const safeName = escapeHTML(name);
+    const safeAge = escapeHTML(age);
+    const safeReward = escapeHTML(reward);
     const safeTimes = escapeHTML(times);
     const safePlaces = escapeHTML(places);
     const safeSchoolwork = escapeHTML(schoolwork);
@@ -3021,25 +3120,22 @@ function generateAgreement() {
 
             <div class="agreement-paper">
 
-                <div class="paper-brand">
-                    Family Screen Guide
-                </div>
-
-                <h3>Our Family Screen Plan</h3>
-
+                <div class="paper-brand">Family Screen Guide · Our family, our promise</div>
+                <div class="agreement-sticker-row" aria-hidden="true">⭐ 🌈 🤝 💚</div>
+                <h3>Our Screen-Time Promise</h3>
                 <p class="paper-intro">
-                    This plan is a shared starting point for clearer,
-                    more predictable screen-time routines.
+                    We made this plan together. We will try our best, speak kindly,
+                    and help each other when it's time to put screens away.
                 </p>
 
-                <div class="agreement-rule">
-                    <strong>Family member</strong>
-                    <span>${safeName}</span>
+                <div class="agreement-kid-name">
+                    This promise belongs to <strong>${safeName}</strong> <span aria-hidden="true">✨</span><br>
+                    <small>Age group: ${safeAge}</small>
                 </div>
 
                 <div class="agreement-rule">
-                    <strong>Daily recreational screen time</strong>
-                    <span>${escapeHTML(hours)} hours, according to our family plan.</span>
+                    <strong>⏰ Our daily screen-time plan</strong>
+                    <span>${escapeHTML(hours)} hours for recreational screen time, as agreed by our family.</span>
                 </div>
 
                 <div class="agreement-rule">
@@ -3068,8 +3164,14 @@ function generateAgreement() {
                 </div>
 
                 <div class="agreement-rule">
-                    <strong>Parent commitment</strong>
+                    <strong>💚 My parent's promise</strong>
                     <span>${safeParent}</span>
+                </div>
+
+                <div class="agreement-reward">
+                    <div class="reward-label">🎉 When we work on our plan together</div>
+                    <div class="reward-choice">${safeReward}</div>
+                    <small>This is a family promise, not a punishment or a purchase requirement.</small>
                 </div>
 
                 <div class="agreement-review">
@@ -3081,14 +3183,17 @@ function generateAgreement() {
                 <div class="agreement-signatures">
 
                     <div class="signature-line">
-                        Child / Family member
+                        ✍️ Child's signature
                     </div>
 
                     <div class="signature-line">
-                        Parent / Caregiver
+                        ✍️ Parent's signature
                     </div>
 
                 </div>
+                <p style="text-align:center; margin:18px 0 0; font-size:0.78rem; color:#64736a;">
+                    Signed with teamwork, patience, and kindness. 💚
+                </p>
 
             </div>
 
