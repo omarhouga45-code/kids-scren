@@ -1714,9 +1714,7 @@ footer {
     /* Preserve the designed agreement as a real, colorful printable page. */
     [data-print-active="true"] .agreement-paper {
         box-sizing: border-box !important;
-        /* Force a compact print layout; keep the visual design while reducing page height. */
-        zoom: 0.40 !important;
-        width: 250% !important;
+        /* Size and scaling are calculated by printResult() for the actual A4 printable area. */
         max-width: none !important;
         margin: 0 !important;
         border: 3px solid #354d43 !important;
