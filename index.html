@@ -2986,19 +2986,29 @@ function printResult(id) {
 
         const pageWidth = (210 - 14) * 96 / 25.4;
         const pageHeight = (297 - 14) * 96 / 25.4;
+        // Use a fixed two-page print canvas so overflowing content cannot
+        // create a long sequence of mostly blank pages.
+        const maxPrintHeight = pageHeight * 2;
         printRoot.style.setProperty("width", pageWidth + "px", "important");
         printRoot.style.setProperty("max-width", "none", "important");
-        printRoot.style.setProperty("height", "auto", "important");
-        printRoot.style.setProperty("overflow", "visible", "important");
+        printRoot.style.setProperty("height", maxPrintHeight + "px", "important");
+        printRoot.style.setProperty("max-height", maxPrintHeight + "px", "important");
+        printRoot.style.setProperty("overflow", "hidden", "important");
+        printRoot.style.setProperty("break-inside", "avoid", "important");
+        printRoot.style.setProperty("page-break-inside", "avoid", "important");
+
+        printableResult.style.setProperty("position", "static", "important");
+        printableResult.style.setProperty("display", "block", "important");
         printableResult.style.setProperty("width", pageWidth + "px", "important");
         printableResult.style.setProperty("max-width", "none", "important");
+        printableResult.style.setProperty("height", "auto", "important");
+        printableResult.style.setProperty("overflow", "visible", "important");
         printableResult.style.setProperty("box-sizing", "border-box", "important");
 
         const naturalHeight = Math.max(printableResult.scrollHeight, printableResult.offsetHeight, 1);
-        const scale = Math.min(1, (pageHeight * 2) / naturalHeight);
+        const scale = Math.min(1, maxPrintHeight / naturalHeight);
         if (scale < 1) {
             printableResult.style.setProperty("zoom", String(scale), "important");
-            printableResult.style.setProperty("width", (pageWidth / scale) + "px", "important");
         }
 
         const cleanup = () => {
