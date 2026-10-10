@@ -2982,6 +2982,57 @@ function printResult(id) {
         printRoot.setAttribute("data-print-active", "true");
         const printableResult = target.cloneNode(true);
         printRoot.appendChild(printableResult);
+
+        // Keep the reflection printout visually aligned with the site's
+        // sage, cream and dark-green brand palette.
+        printRoot.style.setProperty("box-sizing", "border-box", "important");
+        printRoot.style.setProperty("padding", "18px", "important");
+        printRoot.style.setProperty("border", "2px solid #657d6f", "important");
+        printRoot.style.setProperty("border-radius", "14px", "important");
+        printRoot.style.setProperty("background", "#fbfaf6", "important");
+        printRoot.style.setProperty("color", "#26332f", "important");
+        printableResult.style.setProperty("background", "#fbfaf6", "important");
+        printableResult.style.setProperty("color", "#26332f", "important");
+        printableResult.style.setProperty("border", "0", "important");
+        printableResult.style.setProperty("box-shadow", "none", "important");
+
+        printableResult.querySelectorAll("h4, .result-heading").forEach(el => {
+            el.style.setProperty("color", "#4e665a", "important");
+        });
+        printableResult.querySelectorAll(".result-intro").forEach(el => {
+            el.style.setProperty("background", "#f3f5ef", "important");
+            el.style.setProperty("border-left", "4px solid #657d6f", "important");
+            el.style.setProperty("padding", "12px 14px", "important");
+            el.style.setProperty("border-radius", "8px", "important");
+            el.style.setProperty("color", "#26332f", "important");
+        });
+        printableResult.querySelectorAll(".reflection-card").forEach(el => {
+            el.style.setProperty("background", "#e5ece5", "important");
+            el.style.setProperty("border", "1px solid #cbd6cd", "important");
+            el.style.setProperty("border-radius", "10px", "important");
+            el.style.setProperty("padding", "12px 14px", "important");
+            el.style.setProperty("color", "#26332f", "important");
+        });
+        printableResult.querySelectorAll(".reflection-highlight").forEach(el => {
+            el.style.setProperty("background", "#f5eee3", "important");
+            el.style.setProperty("border", "1px solid #e9dfce", "important");
+            el.style.setProperty("border-left", "4px solid #657d6f", "important");
+        });
+        printableResult.querySelectorAll(".next-step").forEach(el => {
+            el.style.setProperty("background", "#f3f5ef", "important");
+            el.style.setProperty("border", "1px solid #dfe4dd", "important");
+            el.style.setProperty("border-left", "4px solid #4e665a", "important");
+            el.style.setProperty("border-radius", "10px", "important");
+            el.style.setProperty("padding", "12px 14px", "important");
+            el.style.setProperty("color", "#26332f", "important");
+        });
+        printableResult.querySelectorAll("p, li, span, strong, small").forEach(el => {
+            el.style.setProperty("color", "#26332f", "important");
+        });
+        printableResult.querySelectorAll(".result-actions, .btn").forEach(el => {
+            el.style.setProperty("display", "none", "important");
+        });
+
         document.body.appendChild(printRoot);
 
         const pageWidth = (210 - 14) * 96 / 25.4;
