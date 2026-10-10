@@ -2955,16 +2955,16 @@ function printResult(id) {
         // This is calculated in the browser before opening Print Preview.
         const pageWidth = (210 - 14) * 96 / 25.4;
         const pageHeight = (297 - 14) * 96 / 25.4;
-        printRoot.style.width = pageWidth + "px";
-        printRoot.style.height = pageHeight + "px";
-        printRoot.style.overflow = "hidden";
-        printablePaper.style.zoom = "1";
-        printablePaper.style.width = pageWidth + "px";
-        printablePaper.style.maxWidth = "none";
+        printRoot.style.setProperty("width", pageWidth + "px", "important");
+        printRoot.style.setProperty("height", pageHeight + "px", "important");
+        printRoot.style.setProperty("overflow", "hidden", "important");
+        printablePaper.style.setProperty("zoom", "1", "important");
+        printablePaper.style.setProperty("width", pageWidth + "px", "important");
+        printablePaper.style.setProperty("max-width", "none", "important");
         const naturalHeight = printablePaper.scrollHeight;
         const scale = Math.min(1, pageHeight / Math.max(naturalHeight, 1));
-        printablePaper.style.zoom = String(scale);
-        printablePaper.style.width = (pageWidth / scale) + "px";
+        printablePaper.style.setProperty("zoom", String(scale), "important");
+        printablePaper.style.setProperty("width", (pageWidth / scale) + "px", "important");
 
         const cleanup = () => {
             printRoot.remove();
