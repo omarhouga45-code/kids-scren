@@ -2974,6 +2974,43 @@ function printResult(id) {
         return;
     }
 
+    // Keep Screen-Time Reflection results to at most two A4 pages.
+    // The agreement keeps its separate one-page print path above.
+    if (id === "reflectionOutput") {
+        const printRoot = document.createElement("div");
+        printRoot.className = "agreement-print-root";
+        printRoot.setAttribute("data-print-active", "true");
+        const printableResult = target.cloneNode(true);
+        printRoot.appendChild(printableResult);
+        document.body.appendChild(printRoot);
+
+        const pageWidth = (210 - 14) * 96 / 25.4;
+        const pageHeight = (297 - 14) * 96 / 25.4;
+        printRoot.style.setProperty("width", pageWidth + "px", "important");
+        printRoot.style.setProperty("max-width", "none", "important");
+        printRoot.style.setProperty("height", "auto", "important");
+        printRoot.style.setProperty("overflow", "visible", "important");
+        printableResult.style.setProperty("width", pageWidth + "px", "important");
+        printableResult.style.setProperty("max-width", "none", "important");
+        printableResult.style.setProperty("box-sizing", "border-box", "important");
+
+        const naturalHeight = Math.max(printableResult.scrollHeight, printableResult.offsetHeight, 1);
+        const scale = Math.min(1, (pageHeight * 2) / naturalHeight);
+        if (scale < 1) {
+            printableResult.style.setProperty("zoom", String(scale), "important");
+            printableResult.style.setProperty("width", (pageWidth / scale) + "px", "important");
+        }
+
+        const cleanup = () => {
+            printRoot.remove();
+            window.removeEventListener("afterprint", cleanup);
+        };
+        window.addEventListener("afterprint", cleanup, { once: true });
+        window.print();
+        setTimeout(cleanup, 30000);
+        return;
+    }
+
     target.setAttribute("data-print-active", "true");
     const cleanup = () => target.removeAttribute("data-print-active");
     window.addEventListener("afterprint", cleanup, { once: true });
@@ -4137,20 +4174,45 @@ function generateReflection() {
         );
     }
 
+    // Choose a practical next step based on the most relevant answer, not a fixed generic order.
     let nextStep;
+    let focusArea;
 
     if (transitions !== "smooth") {
-        nextStep =
-            "Start with one screen-time transition this week. A clearer stopping point and a prepared next activity may be more useful than changing everything at once.";
-    } else if (meals !== "protected") {
-        nextStep =
-            "Try protecting one predictable family moment from screens, such as one meal or a short evening conversation.";
+        focusArea = "screen transitions";
+        nextStep = "Agree on a clear stopping point before screen time begins, then prepare the next activity in advance.";
     } else if (sleep !== "steady") {
-        nextStep =
-            "Look at the evening routine as a whole. Choose one small change that makes the transition toward bedtime more predictable.";
+        focusArea = "sleep routine";
+        nextStep = "Choose one predictable evening change, such as ending recreational screens before the bedtime routine begins.";
+    } else if (school !== "managed") {
+        focusArea = "schoolwork and responsibilities";
+        nextStep = "Try placing one screen-free homework or responsibility block before recreational screen time.";
+    } else if (meals !== "protected") {
+        focusArea = "meals and family moments";
+        nextStep = "Protect one predictable family moment from screens, such as one meal or a short evening conversation.";
+    } else if (movement !== "regular") {
+        focusArea = "movement and active time";
+        nextStep = "Choose one realistic daily opportunity for movement, such as a walk, outdoor play, or an active break.";
+    } else if (connection !== "space") {
+        focusArea = "offline interests and connection";
+        nextStep = "Set aside one short, regular time for a shared offline activity chosen with your child.";
     } else {
-        nextStep =
-            "Keep what is working and choose one small part of the routine to observe this week rather than trying to change everything.";
+        focusArea = "maintaining the routine";
+        nextStep = "Keep what is working and observe one part of the routine this week rather than trying to change everything.";
+    }
+
+    // Use age to tailor the way the family introduces the next step.
+    const ageGuidance = {
+        preschool: "For a younger child, keep the plan simple and have the adult guide the transition.",
+        school: "For a school-age child, explain the plan together and make the next activity clear.",
+        teen: "For an early teen, discuss the plan together and agree on a realistic boundary."
+    };
+
+    let screenTimeContext = "";
+    if (hours >= 4) {
+        screenTimeContext = " Since the reported recreational screen time is about four hours or more, it may help to look at what that time is replacing in this family's routine; this is not a health threshold or a diagnosis.";
+    } else if (hours > 0) {
+        screenTimeContext = " Consider the reported time alongside sleep, movement, schoolwork, and family connection; the number alone does not determine whether the routine is working well.";
     }
 
     showResult("reflectionOutput", `
@@ -4186,7 +4248,7 @@ function generateReflection() {
 
             <div class="reflection-card reflection-highlight">
                 <h4>One small thing to try this week</h4>
-                <p>${escapeHTML(nextStep)}</p>
+                <p><strong>Focus:</strong> ${escapeHTML(focusArea)}. ${escapeHTML(nextStep)} ${escapeHTML(ageGuidance[age])}${escapeHTML(screenTimeContext)}</p>
             </div>
 
         </div>
