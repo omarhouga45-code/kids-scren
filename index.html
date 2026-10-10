@@ -3260,6 +3260,21 @@ function generateReset() {
         transition: "an easier transition to the next activity"
     };
 
+    const timingGuidance = {
+        "after-school": "After school, give your child a short chance to settle or have a snack before the planned stopping point if your routine allows.",
+        "before-dinner": "Before dinner, make the next step concrete by telling your child what they will do when the screen is put away.",
+        "after-dinner": "After dinner, keep the next activity simple so the transition does not turn into another long negotiation.",
+        bedtime: "Near bedtime, make the stopping point part of the evening routine and leave room for the usual wind-down steps.",
+        weekend: "During flexible weekend time, agree on the stopping point together before the screen session begins."
+    };
+
+    const goalGuidance = {
+        calm: "Keep your voice steady and use the same short message each time.",
+        quick: "Use one clear warning and one short ending sentence rather than adding several reminders.",
+        "less-negotiation": "Agree on the boundary before screen time starts, then avoid reopening the decision at the stopping point.",
+        transition: "Name the next activity in advance and, when useful, begin it together for the first minute."
+    };
+
     showResult("resetOutput", `
         <h4 class="result-heading">Your screen-time reset</h4>
 
@@ -3268,6 +3283,12 @@ function generateReset() {
             ${escapeHTML(timingLabels[timing])}.
             ${escapeHTML(data.intro)}
         </p>
+
+        <div class="reflection-card">
+            <h4>Make it fit your moment</h4>
+            <p>${escapeHTML(timingGuidance[timing])}</p>
+            <p>${escapeHTML(goalGuidance[goal])}</p>
+        </div>
 
         <div class="result-grid">
 
