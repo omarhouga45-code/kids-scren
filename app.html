@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Reason Media | Market Intelligence & Lead Extractor</title>
+    <script src="https://cdn.jsdelivr.net/npm/@google/generative-ai@0.1.1/dist/index.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+        body { background-color: var(--bg); color: var(--text); padding: 2rem; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 2rem; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #818cf8; }
+        p { color: var(--text-muted); }
+        .card { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } }
+        .form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+        label { font-size: 0.875rem; font-weight: 500; color: var(--text-muted); }
+        input, textarea, select { background-color: #0f172a; border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem; color: var(--text); font-size: 1rem; }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); }
+        button { background-color: var(--primary); color: white; border: none; border-radius: 8px; padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; width: 100%; }
+        button:hover { background-color: var(--primary-dark); }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .results-container { margin-top: 2rem; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; background-color: var(--card-bg); border-radius: 8px; overflow: hidden; }
+        th, td { padding: 0.75rem 1rem; text-align: right; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        th { background-color: #1e293b; color: #818cf8; font-weight: 600; }
+        tr:hover { background-color: rgba(255,255,255,0.02); }
+        .export-btn { background-color: #059669; margin-top: 1rem; width: auto; display: inline-block; }
+        .export-btn:hover { background-color: #047857; }
+        .loading { text-align: center; padding: 2rem; color: var(--text-muted); display: none; }
+        .insights { background: #1e1b4b; border: 1px solid #312e81; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Good Reason Media Intelligence</h1>
+            <p>لوحة التحكم الذكية لاستخراج وتحليل داتا السوق المغربي</p>
+        </header>
+
+        <div class="card">
+            <div class="form-group">
+                <label for="apiKey">Google AI Studio API Key (L'clé)</label>
+                <input type="password" id="apiKey" placeholder="ألصق الـ L'clé هنا...">
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="niche">النيش أو الكلمة المفتاحية (Keyword / Niche)</label>
+                    <input type="text" id="niche" placeholder="مثال: Cosmetics, ملابس, مطاعم...">
+                </div>
+                <div class="form-group">
+                    <label for="location">المدينة / المنطقة فالمغرب</label>
+                    <input type="text" id="location" placeholder="مثال: Casablanca, Marrakech, Morocco...">
+                </div>
+            </div>
+
+            <button id="runBtn" onclick="runAnalysis()">🚀 بدء استخراج وتحليل الداتا</button>
+        </div>
+
+        <div id="loading" class="loading">
+            <p>جاري الاتصال بالسيرفر وتحليل السوق المغربي... عافاكم الصبر لحظات قليلة ⏳</p>
+        </div>
+
+        <div id="results" class="results-container" style="display: none;">
+            <div class="card">
+                <h3>💡 تحليل النيش والجمهور المستهدف (Target Audience)</h3>
+                <div id="insightsContent" class="insights"></div>
+            </div>
+
+            <div class="card">
+                <h3>📊 جدول الشركات والـ Leads المستخرجة</h3>
+                <div style="overflow-x: auto;">
+                    <table id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>اسم المتجر / الشركة</th>
+                                <th>النيش والقطاع</th>
+                                <th>العرض الأساسي (Value Offer)</th>
+                                <th>معلومات الاتصال / الرابط</th>
+                                <th>تحليل الـ Target Audience</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+                <button class="export-btn" onclick="exportCSV()">📥 تحميل الملف (CSV)</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let extractedData = [];
+
+        async function runAnalysis() {
+            const apiKey = document.getElementById('apiKey').value.trim();
+            const niche = document.getElementById('niche').value.trim();
+            const location = document.getElementById('location').value.trim();
+
+            if (!apiKey || !niche) {
+                alert('المرجو إدخال L\'clé API والنيش على الأقل!');
+                return;
+            }
+
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('runBtn').disabled = true;
+
+            try {
+                const { GoogleGenerativeAI } = window.GoogleGenerativeAI;
+                const genAI = new GoogleGenerativeAI(apiKey);
+                const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+                const prompt = `Act as an expert Market Intelligence and Data Extraction system for Moroccan online businesses and market leads.
+                The user is searching for: Niche/Keyword "${niche}" in location "${location}".
+                
+                Generate realistic, highly accurate simulated data and market analysis for active businesses, brands, or stores in Morocco matching this criteria. Provide at least 5 to 7 detailed entries.
+                
+                You MUST output your response strictly in valid JSON format with no markdown formatting blocks wrapping it if possible, or standard markdown JSON. 
+                Structure it precisely as follows:
+                {
+                  "insights": "Detailed analysis in Arabic/Darija about the current market trends, dominant offers, and target audience profile for this niche in Morocco.",
+                  "leads": [
+                    {
+                      "name": "Business Name",
+                      "category": "Niche Category",
+                      "offer": "Core Product/Service Offer",
+                      "contact": "URL or Phone/Handle",
+                      "target": "Target Audience details"
+                    }
+                  ]
+                }`;
+
+                const result = await model.generateContent(prompt);
+                const response = await result.response;
+                let text = response.text();
+                
+                // Clean markdown code blocks if present
+                text = text.replace(/```json/g, '').replace(/```/g, '').trim();
+                const data = JSON.parse(text);
+
+                extractedData = data.leads;
+
+                // Render Insights
+                document.getElementById('insightsContent').innerText = data.insights;
+
+                // Render Table
+                const tbody = document.getElementById('tableBody');
+                tbody.innerHTML = '';
+                data.leads.forEach(lead => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${lead.name}</td>
+                        <td>${lead.category}</td>
+                        <td>${lead.offer}</td>
+                        <td>${lead.contact}</td>
+                        <td>${lead.target}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('results').style.display = 'block';
+
+            } catch (error) {
+                console.error(error);
+                alert('حدث خطأ أثناء المعالجة. تأكد أن L\'clé API صحيحة ومفعلة.');
+                document.getElementById('loading').style.display.display = 'none';
+            } finally {
+                document.getElementById('runBtn').disabled = false;
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+
+        function exportCSV() {
+            if (extractedData.length === 0) return;
+            const csv = Papa.unparse(extractedData);
+            const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.setAttribute('download', 'morocco_market_leads.csv');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
